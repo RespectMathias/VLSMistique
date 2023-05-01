@@ -175,6 +175,6 @@ Project Link: [https://github.com/RespectMathias/VLSMCalculator](https://github.
 [issues-shield]: https://img.shields.io/github/issues/RespectMathias/VLSMCalculator.svg?style=for-the-badge
 [issues-url]: https://github.com/RespectMathias/VLSMCalculator/issues
 [license-shield]: https://img.shields.io/github/license/RespectMathias/VLSMCalculator.svg?style=for-the-badge
-[license-url]: https://github.com/RespectMathias/VLSMCalculator/blob/master/LICENSE
+[license-url]: https://github.com/RespectMathias/VLSMCalculator/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/mathias-lund-hansen-776800264/
