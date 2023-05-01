@@ -94,8 +94,8 @@ Minimum requirements:
 
 ### Installation - Windows Only (currently)
 
-1. Download the installer from the release
-2. Uinzip it or use the wizard
+1. Download the release 
+2. Uinzip it or use the installer
 3. And voilà!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
