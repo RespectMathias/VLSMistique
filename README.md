@@ -121,7 +121,6 @@ To use the VLSM Calculator, simply enter the required information in the input f
 - [ ] Refactoring code if necessary
 - [ ] Implementing the use of RelayCommand and interfaces consistantly
 - [ ] Adding support for other Operating systems
-    - [ ] Nested Feature
 
 See the [open issues](https://github.com/RespectMathias/VLSMCalculator/issues) for a full list of proposed features (and known issues).
 
