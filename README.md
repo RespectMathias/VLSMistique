@@ -96,7 +96,7 @@ Minimum requirements:
 
 ### Installation - Windows Only (currently)
 
-1. Download the release 
+1. Download from the [release](https://github.com/RespectMathias/VLSMCalculator/releases/)
 2. Uinzip it or use the installer
 3. And voilà!
 
