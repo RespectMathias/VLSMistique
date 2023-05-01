@@ -66,6 +66,8 @@
 
 This project is a Windows-based calculator that helps you calculate subnets using a given IP, the amount of subnets and hosts for each subnet. It is built using the WPF framework and has a user-friendly interface that makes it easy to use.
 
+![Usage GIF](images/usage.gif)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -108,12 +110,9 @@ Minimum requirements:
 To use the VLSM Calculator, simply enter the required information in the input fields and click on the "Calculate" button. The application will then calculate the subnets and display the results in the output fields.
 
 1. Input the amount of subnets you need
-    * A Grid will generate based on the amount
 2. Input the IP-Address you want the subnets for
 3. Input the hosts you need for each subnet in their respective grid
-    * It doesn't matter what order it'll automatically make it decend
 
-![Usage GIF](images/usage.gif)
 
 
 <!-- ROADMAP -->
