@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a Windows-based calculator that helps you calculate subnets using a given IP, the amount of subnets and hosts for each subnet. It is built using the WPF framework and has a user-friendly interface that makes it easy to use.
+This project is a Windows-based calculator that helps you calculate subnets using a given IP, the amount of subnets and hosts for each subnet. It is built using the WPF framework and uses the [ModernWPF library](https://github.com/Kinnara/ModernWpf) has a user-friendly interface that makes it easy to use.
 
 ![Usage GIF](images/usage.gif)
 
