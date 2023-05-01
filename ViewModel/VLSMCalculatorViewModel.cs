@@ -32,7 +32,6 @@ namespace VLSMCalculator.ViewModel
         private string _ipAddress;
         private int _subnetAmount;
         private ObservableCollection<SubnetModel> _subnets;
-        public IconThemeViewModel IconThemeViewModel { get; }
 
         /// <summary> Gets the IPAddress and checks if its changed. </summary>
         public string IPAddress
@@ -80,7 +79,6 @@ namespace VLSMCalculator.ViewModel
         /// <summary> Constructor. </summary>
         public VLSMCalculatorViewModel()
         {
-            IconThemeViewModel = new IconThemeViewModel();
             _subnets = new ObservableCollection<SubnetModel>();
             CalculateSubnetsCommand = new RelayCommand(CalculateSubnets);
         }

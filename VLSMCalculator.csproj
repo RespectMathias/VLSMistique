@@ -11,10 +11,10 @@
 		<Copyright>Copyright © 2023</Copyright>
 		<Version>1.0.0.0</Version>
 		<FileVersion>1.0.0.0</FileVersion>
-		<ApplicationIcon>Resources\icon_dark.ico</ApplicationIcon>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
 		<Description>A simple VLSM Calculator using WPF and MVVM</Description>
 		<Icon>icon_dark.ico</Icon>
-		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Platforms>AnyCPU</Platforms>
 	</PropertyGroup>
 
@@ -30,10 +30,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\icon_dark.old.ico" />
-	  <None Remove="Resources\icon_dark.old.svg" />
-	  <None Remove="Resources\icon_light.old.ico" />
-	  <None Remove="Resources\icon_light.old.svg" />
+	  <None Remove="icon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="icon.ico">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -41,13 +44,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="Resources\icon_light.ico">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="Resources\icon_dark.ico">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-	  <None Update="LICENSE.txt">
+	  <None Update="LICENSE">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
 	  </None>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GRz8sZkU6BOJktWYwTQCVhIMkxiT457PfZ11m2mSQoRFeiXSETDa0srKR8/F21XUlMukpqOrvC5oWt+sa5VuhQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tisen\\source\\repos\\VLSMCalculator\\VlsmCalculator\\VLSMCalculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tisen\\.nuget\\packages\\modernwpfui\\0.9.6\\modernwpfui.0.9.6.nupkg.sha512"
+  ],
+  "logs": []
+}

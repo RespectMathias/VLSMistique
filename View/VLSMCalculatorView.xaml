@@ -21,8 +21,7 @@
         WindowStartupLocation="CenterScreen"
         Title="" Height="500" Width="800"
         xmlns:ui="http://schemas.modernwpf.com/2019"
-        ui:WindowHelper.UseModernWindowStyle="True"
-        Icon="{Binding IconThemeViewModel.IconSource}">
+        ui:WindowHelper.UseModernWindowStyle="True">
 
     <Window.DataContext>
         <ViewModel:VLSMCalculatorViewModel />
