@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/RespectMathias/VLSMCalculator">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="700" height="300">
   </a>
 
 <h3 align="center">VLSM Calculator</h3>
@@ -113,7 +113,7 @@ To use the VLSM Calculator, simply enter the required information in the input f
 3. Input the hosts you need for each subnet in their respective grid
     * It doesn't matter what order it'll automatically make it decend
 
-[Usage GIF](images/usage.gif)
+![Usage GIF](images/usage.gif)
 
 
 <!-- ROADMAP -->
@@ -149,7 +149,7 @@ If you wish to contribute to the project or fork it you are more than welcome to
 <!-- LICENSE -->
 ## License
 
-Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information.
+Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -167,15 +167,15 @@ Project Link: [https://github.com/RespectMathias/VLSMCalculator](https://github.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/RespectMathias/VLSMCalculator.svg?style=for-the-badge
 [contributors-url]: https://github.com/RespectMathias/VLSMCalculator/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/RespectMathias/VLSMCalculator.svg?style=for-the-badge
 [forks-url]: https://github.com/RespectMathias/VLSMCalculator/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/RespectMathias/VLSMCalculator.svg?style=for-the-badge
 [stars-url]: https://github.com/RespectMathias/VLSMCalculator/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/RespectMathias/VLSMCalculator.svg?style=for-the-badge
 [issues-url]: https://github.com/RespectMathias/VLSMCalculator/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/RespectMathias/VLSMCalculator.svg?style=for-the-badge
 [license-url]: https://github.com/RespectMathias/VLSMCalculator/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/mathias-lund-hansen-776800264/
