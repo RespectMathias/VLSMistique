@@ -13,7 +13,7 @@
 		<FileVersion>1.0.0.0</FileVersion>
 		<ApplicationIcon>icon.ico</ApplicationIcon>
 		<Description>A simple VLSM Calculator using WPF and MVVM</Description>
-		<Icon>icon_dark.ico</Icon>
+		<Icon>icon.ico</Icon>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Platforms>AnyCPU</Platforms>
 	</PropertyGroup>
