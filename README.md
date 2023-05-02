@@ -91,8 +91,8 @@ To use the VLSM Calculator, you need to have the .NET framework installed on you
 ### Prerequisites
 
 Minimum requirements:
-* Dotnet framework
-* A Current Windows OS
+* .NET 6.0 framework
+* Windows 10 or newer
 
 ### Installation - Windows Only (currently)
 
@@ -118,9 +118,9 @@ To use the VLSM Calculator, simply enter the required information in the input f
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Refactoring code if necessary
-- [ ] Implementing the use of RelayCommand and interfaces consistantly
-- [ ] Adding support for other Operating systems
+- [ ] Migrating to .NET MAUI
+  - [ ] Other OS compatability
+- [ ] Updating theme and icon to match windows 11
 
 See the [open issues](https://github.com/RespectMathias/VLSMCalculator/issues) for a full list of proposed features (and known issues).
 
