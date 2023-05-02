@@ -90,7 +90,6 @@ To use the VLSM Calculator, you need to have the .NET framework installed on you
 
 ### Prerequisites
 
-Minimum requirements:
 * .NET 6.0 framework
 * Windows 10 or newer
 
