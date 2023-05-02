@@ -78,6 +78,12 @@ This project is a Windows-based calculator that helps you calculate subnets usin
 * Calculates subnets using a given IP, the amount of subnets and hosts for each subnet
 * Windows-based application
 
+#### Light theme
+![scr_light](images/screenshot_light.png)
+
+#### Dark theme
+![scr_light](images/screenshot_dark.png)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
