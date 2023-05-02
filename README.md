@@ -101,7 +101,7 @@ To use the VLSM Calculator, you need to have the .NET framework installed on you
 
 ### Installation - Windows Only
 
-1. Download from the [release](https://github.com/RespectMathias/VLSMCalculator/releases/)
+1. Download from the [releases](https://github.com/RespectMathias/VLSMCalculator/releases/)
 2. Unzip or use the installer
 3. And voilà!
 
