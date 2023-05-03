@@ -123,7 +123,7 @@ To use the VLSM Calculator, simply enter the required information in the input f
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Migrating to .NET Core
+- [ ] Migrating to .NET MAUI
   - [ ] Other OS compatability
   - [ ] Use Prism for MVVM
   - [ ] Updating theme and icon to match windows 11
