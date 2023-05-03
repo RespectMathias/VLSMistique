@@ -125,6 +125,7 @@ To use the VLSM Calculator, simply enter the required information in the input f
 
 - [ ] Migrating to .NET MAUI
   - [ ] Other OS compatability
+  - [ ] Use Prism for MVVM
   - [ ] Updating theme and icon to match windows 11
 
 See the [open issues](https://github.com/RespectMathias/VLSMCalculator/issues) for a full list of proposed features (and known issues).
