@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/RespectMathias/VLSMCalculator">
+  <a href="https://github.com/RespectMathias/VLSMistique">
     <img src="images/icon.svg" alt="Logo" width="256" height="256">
   </a>
 
@@ -23,11 +23,11 @@
     <br />
     <br />
     <br />
-    <a href="https://github.com/RespectMathias/VLSMCalculator">View Project</a>
+    <a href="https://github.com/RespectMathias/VLSMistique">View Project</a>
     ·
-    <a href="https://github.com/RespectMathias/VLSMCalculator/issues">Report Bug</a>
+    <a href="https://github.com/RespectMathias/VLSMistique/issues">Report Bug</a>
     ·
-    <a href="https://github.com/RespectMathias/VLSMCalculator/issues">Request Feature</a>
+    <a href="https://github.com/RespectMathias/VLSMistique/issues">Request Feature</a>
   </p>
 </div>
 
@@ -101,7 +101,7 @@ To use the VLSM Calculator, you need to have the .NET framework installed on you
 
 ### Installation - Windows Only
 
-1. Download from the [releases](https://github.com/RespectMathias/VLSMCalculator/releases/)
+1. Download from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
 2. Unzip or use the installer
 3. And voilà!
 
@@ -128,7 +128,7 @@ To use the VLSM Calculator, simply enter the required information in the input f
   - [ ] Other OS compatability
   - [ ] Updating theme and icon to match windows 11
 
-See the [open issues](https://github.com/RespectMathias/VLSMCalculator/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/RespectMathias/VLSMistique/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,22 +164,22 @@ Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information
 
 Mathias Lund-Hansen - [@Linkedin](https://www.linkedin.com/in/mathias-lund-hansen-776800264/)
 
-Project Link: [https://github.com/RespectMathias/VLSMCalculator](https://github.com/RespectMathias/VLSMCalculator)
+Project Link: [https://github.com/RespectMathias/VLSMistique](https://github.com/RespectMathias/VLSMistique)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/RespectMathias/VLSMCalculator.svg?style=for-the-badge
-[contributors-url]: https://github.com/RespectMathias/VLSMCalculator/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/RespectMathias/VLSMCalculator.svg?style=for-the-badge
-[forks-url]: https://github.com/RespectMathias/VLSMCalculator/network/members
-[stars-shield]: https://img.shields.io/github/stars/RespectMathias/VLSMCalculator.svg?style=for-the-badge
-[stars-url]: https://github.com/RespectMathias/VLSMCalculator/stargazers
-[issues-shield]: https://img.shields.io/github/issues/RespectMathias/VLSMCalculator.svg?style=for-the-badge
-[issues-url]: https://github.com/RespectMathias/VLSMCalculator/issues
-[license-shield]: https://img.shields.io/github/license/RespectMathias/VLSMCalculator.svg?style=for-the-badge
-[license-url]: https://github.com/RespectMathias/VLSMCalculator/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/RespectMathias/VLSMistique.svg?style=for-the-badge
+[contributors-url]: https://github.com/RespectMathias/VLSMistique/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/RespectMathias/VLSMistique.svg?style=for-the-badge
+[forks-url]: https://github.com/RespectMathias/VLSMistique/network/members
+[stars-shield]: https://img.shields.io/github/stars/RespectMathias/VLSMistique.svg?style=for-the-badge
+[stars-url]: https://github.com/RespectMathias/VLSMistique/stargazers
+[issues-shield]: https://img.shields.io/github/issues/RespectMathias/VLSMistique.svg?style=for-the-badge
+[issues-url]: https://github.com/RespectMathias/VLSMistique/issues
+[license-shield]: https://img.shields.io/github/license/RespectMathias/VLSMistique.svg?style=for-the-badge
+[license-url]: https://github.com/RespectMathias/VLSMistique/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/mathias-lund-hansen-776800264/
