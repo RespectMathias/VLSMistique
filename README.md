@@ -13,13 +13,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/RespectMathias/VLSMCalculator">
-    <img src="images/logo.png" alt="Logo" width="700" height="300">
+    <img src="images/icon.svg" alt="Logo" width="256" height="256">
   </a>
 
-<h3 align="center">VLSM Calculator</h3>
+<h3 align="center">VLSMistique</h3>
 
   <p align="center">
-    Calculates subnets using a given IP, the amount of subnets and hosts for each subnet.
+    A VLSM Calculator that Calculates subnets using a given IP, the amount of subnets and hosts for each subnet.
     <br />
     <br />
     <br />
@@ -123,9 +123,9 @@ To use the VLSM Calculator, simply enter the required information in the input f
 <!-- ROADMAP -->
 ## Roadmap
 
+- [*] Use CommunityToolkit.MVVM for MVVM
 - [ ] Migrating to .NET MAUI
   - [ ] Other OS compatability
-  - [ ] Use CommunityToolkit.MVVM for MVVM
   - [ ] Updating theme and icon to match windows 11
 
 See the [open issues](https://github.com/RespectMathias/VLSMCalculator/issues) for a full list of proposed features (and known issues).
