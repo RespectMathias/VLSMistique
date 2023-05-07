@@ -123,7 +123,7 @@ To use the VLSM Calculator, simply enter the required information in the input f
 <!-- ROADMAP -->
 ## Roadmap
 
-- [*] Use CommunityToolkit.MVVM for MVVM
+- [x] Use CommunityToolkit.MVVM for MVVM
 - [ ] Migrating to .NET MAUI
   - [ ] Other OS compatability
   - [ ] Updating theme and icon to match windows 11
