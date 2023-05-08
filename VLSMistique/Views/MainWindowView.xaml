@@ -22,7 +22,10 @@
         WindowStartupLocation="CenterScreen"
         Title="VLSMistique" Height="500" Width="800"
         xmlns:ui="http://schemas.modernwpf.com/2019"
-        ui:WindowHelper.UseModernWindowStyle="True" >
+        ui:WindowHelper.UseModernWindowStyle="True"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF" 
+        fw:AcrylicWindow.Enabled="True"
+        fw:AcrylicWindow.AcrylicWindowStyle="NoIcon" >
 
     <Window.DataContext>
         <ViewModels:MainWindowViewModel />

@@ -34,6 +34,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+	  <PackageReference Include="FluentWPF" Version="0.10.2" />
 	  <PackageReference Include="ModernWpfUI" Version="0.9.6" />
 	</ItemGroup>
 
