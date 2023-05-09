@@ -1,0 +1,2 @@
+MainPackage=C:\Users\matlun0001\source\repos\VLSMistique\VLSMistiqueInstaller\bin\x64\Release\VLSMistiqueInstaller_1.0.0.0_x64.msix
+SymbolPackage=C:\Users\matlun0001\source\repos\VLSMistique\VLSMistiqueInstaller\obj\x64\Release\Symbols\VLSMistiqueInstaller_1.0.0.0_x64.appxsym
