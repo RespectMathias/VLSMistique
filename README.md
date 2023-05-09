@@ -161,7 +161,7 @@ Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information
 
 
 <!-- NOTICE -->
-## NOTICE
+## Notice
 
 [ModernWPF](https://github.com/Kinnara/ModernWpf)
 **Copyright (c) 2019 Yimeng Wu.** 
