@@ -2,7 +2,8 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net7.0-windows10.0.19041.0</TargetFramework>
+		<TargetPlatformMinVersion>7.0</TargetPlatformMinVersion>
 		<UseWPF>true</UseWPF>
 		<AssemblyTitle>VLSMistique</AssemblyTitle>
 		<AssemblyDescription>A simple VLSM Calculator using WPF and MVVM</AssemblyDescription>
@@ -34,7 +35,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-	  <PackageReference Include="FluentWPF" Version="0.10.2" />
+	  <PackageReference Include="MicaWPF" Version="5.3.0" />
 	  <PackageReference Include="ModernWpfUI" Version="0.9.6" />
 	</ItemGroup>
 

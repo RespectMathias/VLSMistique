@@ -12,7 +12,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License. -->
 
-<Window x:Class="VLSMistique.Views.MainWindowView"
+<mica:MicaWindow x:Class="VLSMistique.Views.MainWindowView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ViewModels="clr-namespace:VLSMistique.ViewModels"
@@ -22,10 +22,7 @@
         WindowStartupLocation="CenterScreen"
         Title="VLSMistique" Height="500" Width="800"
         xmlns:ui="http://schemas.modernwpf.com/2019"
-        ui:WindowHelper.UseModernWindowStyle="True"
-        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF" 
-        fw:AcrylicWindow.Enabled="True"
-        fw:AcrylicWindow.AcrylicWindowStyle="NoIcon" >
+        xmlns:mica="clr-namespace:MicaWPF.Controls;assembly=MicaWPF">
 
     <Window.DataContext>
         <ViewModels:MainWindowViewModel />
@@ -36,74 +33,95 @@
     </Window.Resources>
 
     <!-- Grid Definitions -->
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="95.99" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+    <ui:Page>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="95.99" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-        <!-- Amount of Subnets Input -->
-        <TextBlock Grid.Column="0" Text="Subnet Amount:" Margin="5,0,5,0" VerticalAlignment="Center" Height="16" />
-        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5,5,5,5">
-            <TextBox.Text>
-                <Binding Path="SubnetAmount"
+            <!-- Amount of Subnets Input -->
+            <TextBlock Grid.Column="0" Text="Subnet Amount:" Margin="5,0,5,0" VerticalAlignment="Center" Height="16" />
+            <mica:TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5,5,5,5">
+                <TextBox.Text>
+                    <Binding Path="SubnetAmount"
                          Mode="TwoWay"
                          UpdateSourceTrigger="PropertyChanged"
                          NotifyOnValidationError="True">
-                    <Binding.ValidationRules>
-                        <Controls:MaxSubnetsValidationRule MaxSubnets="1000"/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
+                        <Binding.ValidationRules>
+                            <Controls:MaxSubnetsValidationRule MaxSubnets="1000"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </mica:TextBox>
 
-        <!-- IPAddress Input -->
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="IP Address:" Margin="5,0,5,0" VerticalAlignment="Center" Height="16" />
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="5,5,-4,5">
-            <TextBox.Text>
-                <Binding Path="Address"
+            <!-- IPAddress Input -->
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="IP Address:" Margin="5,0,5,0" VerticalAlignment="Center" Height="16" />
+            <mica:TextBox Grid.Row="1" Grid.Column="1" Margin="5,5,2,5">
+                <TextBox.Text>
+                    <Binding Path="Address"
                          Mode="TwoWay"
                          UpdateSourceTrigger="PropertyChanged"
                          NotifyOnValidationError="True">
-                    <Binding.ValidationRules>
-                        <Controls:IPAddressValidationRule ValidatesOnTargetUpdated="True"/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
+                        <Binding.ValidationRules>
+                            <Controls:IPAddressValidationRule ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </mica:TextBox>
 
-        <!-- Calculate Subnets Button -->
-        <Button Grid.Row="1" Grid.Column="2" Content="Calculate" Margin="0,5,5,5" Command="{Binding CalculateSubnetsCommand}" Style="{StaticResource AccentButtonStyle}" MinHeight="32" />
+            <!-- Calculate Subnets Button -->
+            <mica:Button Grid.Row="1" Grid.Column="2" Content="Calculate" Margin="2,5,5,5" Command="{Binding CalculateSubnetsCommand}" MinHeight="32">
+                <mica:Button.Style>
+                    <Style TargetType="mica:Button" BasedOn="{StaticResource {x:Type mica:Button}}">
+                        <Setter Property="Padding" Value="10,8,10,9" />
+                    </Style>
+                </mica:Button.Style>
+            </mica:Button>
 
-        <!-- Subnets Grid -->
-        <DataGrid Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding Subnets}" Margin="0,5,0,5" AutoGenerateColumns="False" SelectionUnit="Cell" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Req. Host" IsReadOnly="False">
-                    <DataGridTextColumn.Binding>
-                        <Binding Path="HostAmount"
+
+            <!-- Subnets Grid -->
+            <DataGrid Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding Subnets}" Margin="0,5,0,5" AutoGenerateColumns="False" SelectionUnit="Cell" >
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource {x:Type DataGrid}}">
+                        <Setter Property="HeadersVisibility" Value="Column"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="Margin" Value="9,5,5,5" />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Req. Host" IsReadOnly="False">
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="HostAmount"
                                  Mode="TwoWay"
                                  UpdateSourceTrigger="PropertyChanged" 
                                  NotifyOnValidationError="True"
                                  ValidatesOnDataErrors="True">
-                            <Binding.ValidationRules>
-                                <Controls:MaxHostAmountValidationRule MaxHostAmount="254"/>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </DataGridTextColumn.Binding>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Max Hosts" IsReadOnly="True" Binding="{Binding MaxSubnetHosts, Converter={StaticResource ZeroToNullConverter}}" />
-                <DataGridTextColumn Header="Subnet Mask" IsReadOnly="True" Binding="{Binding Mask}" />
-                <DataGridTextColumn Header="Network Address" IsReadOnly="True" Binding="{Binding NetworkAddress}" />
-                <DataGridTextColumn Header="Range" IsReadOnly="True" Binding="{Binding Range}" />
-                <DataGridTextColumn Header="Broadcast Address" IsReadOnly="True" Binding="{Binding BroadcastAddress}" />
-            </DataGrid.Columns>
-        </DataGrid>
+                                <Binding.ValidationRules>
+                                    <Controls:MaxHostAmountValidationRule MaxHostAmount="254"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Max Hosts" IsReadOnly="True" Binding="{Binding MaxSubnetHosts, Converter={StaticResource ZeroToNullConverter}}" />
+                    <DataGridTextColumn Header="Subnet Mask" IsReadOnly="True" Binding="{Binding Mask}" />
+                    <DataGridTextColumn Header="Network Address" IsReadOnly="True" Binding="{Binding NetworkAddress}" />
+                    <DataGridTextColumn Header="Range" IsReadOnly="True" Binding="{Binding Range}" />
+                    <DataGridTextColumn Header="Broadcast Address" IsReadOnly="True" Binding="{Binding BroadcastAddress}" />
+                </DataGrid.Columns>
+            </DataGrid>
 
-    </Grid>
-</Window>
+        </Grid>
+    </ui:Page>
+    
+</mica:MicaWindow>
