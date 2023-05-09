@@ -164,17 +164,17 @@ Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information
 ## NOTICE
 
 [ModernWPF](https://github.com/Kinnara/ModernWpf)
-Copyright (c) 2019 Yimeng Wu.
+**Copyright (c) 2019 Yimeng Wu.** 
 Modern styles and controls for your WPF applications.
 
 
 [MicaWPF](https://github.com/Simnico99/MicaWPF)
-Copyright (c) 2021 Simnico99.
+**Copyright (c) 2021 Simnico99.** 
 This is a library to make Mica available in WPF.
 
 
 [Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
-Copyright (c) .NET Foundation and Contributors.
+**Copyright (c) .NET Foundation and Contributors.** 
 A collection of helper functions, custom controls, and app services for UWP and .NET applications.
 
 
