@@ -124,9 +124,10 @@ To use the VLSM Calculator, simply enter the required information in the input f
 ## Roadmap
 
 - [x] Use CommunityToolkit.MVVM for MVVM
-- [ ] Migrating to .NET MAUI
-  - [ ] Other OS compatability
-  - [ ] Updating theme and icon to match windows 11
+- [x] Updating theme and icon to match windows 11
+- [ ] Optimizing for performance
+- [ ] Make a NSIX installer
+- [ ] Add to Microsoft store
 
 See the [open issues](https://github.com/RespectMathias/VLSMistique/issues) for a full list of proposed features (and known issues).
 
@@ -154,6 +155,27 @@ If you wish to contribute to the project or fork it you are more than welcome to
 ## License
 
 Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- NOTICE -->
+## NOTICE
+[ModernWPF](https://github.com/Kinnara/ModernWpf)
+Copyright (c) 2019 Yimeng Wu
+Modern styles and controls for your WPF applications.
+
+[MicaWPF](https://github.com/Simnico99/MicaWPF)
+Copyright (c) 2021 Simnico99
+This is a library to make Mica available in WPF.
+
+[Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
+Copyright (c) .NET Foundation and Contributors
+A collection of helper functions, custom controls, and app services for UWP and .NET applications.
+
+
+See `NOTICE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
