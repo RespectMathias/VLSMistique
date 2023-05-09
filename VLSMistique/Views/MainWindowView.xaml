@@ -34,7 +34,7 @@
 
     <!-- Grid Definitions -->
     <ui:Page>
-        <Grid>
+        <Grid CacheMode="BitmapCache">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
