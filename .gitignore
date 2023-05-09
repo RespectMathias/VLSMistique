@@ -1,0 +1,5 @@
+# Ignore any files in /bin and /obj Folders
+**/VLSMistique/bin/*
+**/VLSMistique/obj/*
+**/VLSMistiqueInstaller/bin/*
+**/VLSMistiqueInstaller/obj/*
