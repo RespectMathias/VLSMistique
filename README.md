@@ -175,7 +175,7 @@ This is a library to make Mica available in WPF.
 
 [Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
 **Copyright (c) .NET Foundation and Contributors.** 
-A collection of helper functions, custom controls, and app services for UWP and .NET applications.
+A collection of helper functions, custom controls, and app services for UWP and .NET applications. Of which the MVVM toolkit is used.
 
 
 See `NOTICE.txt` for more information.
