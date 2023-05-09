@@ -17,7 +17,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="Views/MainWindowView.xaml"
              xmlns:ui="http://schemas.modernwpf.com/2019" 
-             xmlns:mica="clr-namespace:MicaWPF.Styles;assembly=MicaWPF" >
+             xmlns:mica="clr-namespace:MicaWPF.Styles;assembly=MicaWPF"
+             xmlns:micaControls="clr-namespace:MicaWPF.Controls;assembly=MicaWPF">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -26,7 +27,20 @@
                 <ui:ThemeResources />
                 <ui:XamlControlsResources />
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Customize global style - done here to avoid conflict with micaControls:MicaWindow -->
+            <!-- And because it is too small for its own file -->
+            <Style TargetType="micaControls:Button" x:Key="CalculateButtonStyle" BasedOn="{StaticResource {x:Type micaControls:Button}}">
+                <Setter Property="Padding" Value="10,8,10,9" />
+            </Style>
+            <Style TargetType="{x:Type DataGridColumnHeader}" x:Key="SubnetsColumnHeaderStyle" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="9,5,5,5" />
+            </Style>
+            <Style TargetType="{x:Type DataGrid}" x:Key="SubnetsGridStyle" BasedOn="{StaticResource {x:Type DataGrid}}">
+                <Setter Property="HeadersVisibility" Value="Column"/>
+                <Setter Property="ColumnHeaderStyle" Value="{StaticResource SubnetsColumnHeaderStyle}" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
-    
 </Application>
