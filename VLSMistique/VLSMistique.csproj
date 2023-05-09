@@ -16,7 +16,7 @@
 		<Description>A simple VLSM Calculator using WPF and MVVM</Description>
 		<Icon>icon.ico</Icon>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-		<Platforms>AnyCPU</Platforms>
+		<Platforms>AnyCPU;x86;x64</Platforms>
 		<PackageReadmeFile></PackageReadmeFile>
 	</PropertyGroup>
 
