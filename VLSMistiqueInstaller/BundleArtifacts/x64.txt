@@ -1,2 +1,0 @@
-MainPackage=C:\Users\tisen\source\repos\VLSMistique\VLSMistiqueInstaller\bin\x64\Release\VLSMistiqueInstaller_1.0.2.0_x64.msix
-SymbolPackage=C:\Users\tisen\source\repos\VLSMistique\VLSMistiqueInstaller\obj\x64\Release\Symbols\VLSMistiqueInstaller_1.0.2.0_x64.appxsym
