@@ -106,7 +106,7 @@ To get a local copy up and running, follow these simple steps:
 * [.NET 7.0 desktop runtime](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 * Windows 10 or newer
 
-**Installation**
+**Installation:**
 1. Download the **MSIXBundle** and **batch** from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
 2. Keep them in the same folder and **run** the batch to apply certificate and install
 3. And voilà!
@@ -131,10 +131,17 @@ See the [open issues](https://github.com/RespectMathias/VLSMistique/issues) for 
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing 🤝
+<!-- NOTICE -->
+## Built With 🛠️
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues](https://github.com/RespectMathias/VLSMistique/issues) page. In fact i would appreciate it alot due to my lacking expertise.
+* [ModernWPF framework](https://github.com/Kinnara/ModernWpf)
+Modern styles and controls for your WPF applications.
+* [MicaWPF library](https://github.com/Simnico99/MicaWPF)
+This is a library to make Mica available in WPF.
+* [Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
+Provides a simplified method of implementing MVVM.
+
+See `NOTICE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,6 +155,7 @@ Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+
 <!-- Privacy Policy -->
 ## Privacy Policy 🛡️
 
@@ -157,18 +165,10 @@ Please read this `privacy_policy.md` carefully to understand our policies and pr
 
 
 
-<!-- NOTICE -->
-## Built With 🛠️
+<!-- CONTRIBUTING -->
+## Contributing 🤝
 
-* [ModernWPF framework](https://github.com/Kinnara/ModernWpf)
-Modern styles and controls for your WPF applications.
-* [MicaWPF library](https://github.com/Simnico99/MicaWPF)
-This is a library to make Mica available in WPF.
-* [Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
-Provides a simplified method of implementing MVVM.
-
-
-See `NOTICE.txt` for more information.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues](https://github.com/RespectMathias/VLSMistique/issues) page. In fact i would appreciate it alot due to my lacking expertise.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
