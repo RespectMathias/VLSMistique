@@ -62,9 +62,13 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project 🌐
 
-This project is a Windows-based calculator that helps you calculate subnets using a given IP, the amount of subnets and hosts for each subnet. It is built using the WPF framework and uses the [ModernWPF library](https://github.com/Kinnara/ModernWpf) to get a user-friendly interface that makes it easy to use.
+Tired of manually calculating subnets for your networks? Say hello to VLSMistique - a sleek and powerful Windows-based application that simplifies subnetting in a visually stunning and user-friendly interface.
+
+1. Input the amount of **subnets** you need
+2. Input the **IP-Address** you want the subnets for
+3. Input the **hosts** you need for each subnet in their respective grid
 
 ![Usage GIF](images/usage.gif)
 
@@ -72,11 +76,12 @@ This project is a Windows-based calculator that helps you calculate subnets usin
 
 
 
-### Features
+### Key Features 💡
 
-* Easy to use interface
-* Calculates subnets using a given IP, the amount of subnets and hosts for each subnet
-* Windows-based application
+* **Effortless Subnet Calculations:** Simply enter the IP address, the desired number of subnets, and the number of hosts for each subnet, and let VLSMistique work its magic!
+* **Stunning User Interface:** The ModernWPF, MicaWPF, and CommunityToolkit.MVVM libraries provide a sleek and contemporary look, making subnet calculations a visually delightful experience.
+* **Windows Compatibility:** Seamlessly integrates with your Windows environment for a smooth and hassle-free experience.
+* **Time-Saving:** Say goodbye to manual subnet calculations and let VLSMistique save you valuable time and effort.
 
 #### Windows 11 Mica themes
 ![scr_light](images/screenshot_light.png)
@@ -91,17 +96,16 @@ This project is a Windows-based calculator that helps you calculate subnets usin
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Getting Started 🚀
+To get a local copy up and running, follow these simple steps:
+1. **Clone the repo** 'git clone https://github.com/RespectMathias/VLSMistique.git'
+2. **Open project in Visual Studio**
+3. **Build and run the project**
 
-To use the VLSM Calculator, you need to have the .NET framework installed on your Windows machine. You can download and install the framework from the official Microsoft website. Once you have installed the framework, you can download the msix installer from the release and run it to install the VLSM Calculator.
-
-
-### Prerequisites
-
+### Installation
+**Prerequisites:**
 * [.NET 7.0 desktop runtime](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 * Windows 10 or newer
-
-### Installation - Windows Only
 
 1. Download the **MSIXBundle** and **batch** from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
 2. Keep them in the same folder and **run** the batch to apply certificate and install
@@ -111,19 +115,8 @@ To use the VLSM Calculator, you need to have the .NET framework installed on you
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-To use the VLSM Calculator, simply enter the required information in the input fields and click on the **Calculate** button. The application will then calculate the subnets and display the results in the output fields.
-
-1. Input the amount of **subnets** you need
-2. Input the **IP-Address** you want the subnets for
-3. Input the **hosts** you need for each subnet in their respective grid
-
-
-
 <!-- ROADMAP -->
-## Roadmap
+## Roadmap 🚗
 
 - [x] Use CommunityToolkit.MVVM for MVVM
 - [x] Updating theme and icon to match windows 11
@@ -139,23 +132,16 @@ See the [open issues](https://github.com/RespectMathias/VLSMistique/issues) for 
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+## Contributing 🤝
 
-If you wish to contribute to the project or fork it you are more than welcome to. In fact i would appreciate it alot due to my lacking expertise.
-
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b`)
-3. Commit your Changes (`git commit -m`)
-4. Push to the Branch (`git push origin`)
-5. Open a Pull Request
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues](https://github.com/RespectMathias/VLSMistique/issues) page. In fact i would appreciate it alot due to my lacking expertise.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- LICENSE -->
-## License
+## License 📝
 
 Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information.
 
@@ -164,21 +150,14 @@ Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information
 
 
 <!-- NOTICE -->
-## Notice
+## Built With 🛠️
 
-[ModernWPF](https://github.com/Kinnara/ModernWpf)
-**Copyright (c) 2019 Yimeng Wu.** 
+* [ModernWPF framework](https://github.com/Kinnara/ModernWpf)
 Modern styles and controls for your WPF applications.
-
-
-[MicaWPF](https://github.com/Simnico99/MicaWPF)
-**Copyright (c) 2021 Simnico99.** 
+* [MicaWPF library](https://github.com/Simnico99/MicaWPF)
 This is a library to make Mica available in WPF.
-
-
-[Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
-**Copyright (c) .NET Foundation and Contributors.** 
-A collection of helper functions, custom controls, and app services for UWP and .NET applications. Of which the MVVM toolkit is used.
+* [Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
+Provides a simplified method of implementing MVVM.
 
 
 See `NOTICE.txt` for more information.
@@ -188,11 +167,13 @@ See `NOTICE.txt` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+## Contact 📧
 
 Mathias Lund-Hansen - [@Linkedin](https://www.linkedin.com/in/mathias-lund-hansen-776800264/)
 
 Project Link: [https://github.com/RespectMathias/VLSMistique](https://github.com/RespectMathias/VLSMistique)
+
+Unlock the full potential of your network management with **VLSMistique** - the premier solution for all your IP subnetting needs!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
