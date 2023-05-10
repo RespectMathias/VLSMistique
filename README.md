@@ -76,7 +76,7 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 
 
 
-### Key Features 💡
+## Key Features 💡
 
 * **Effortless Subnet Calculations:** Simply enter the IP address, the desired number of subnets, and the number of hosts for each subnet, and let VLSMistique work its magic!
 * **Stunning User Interface:** The ModernWPF, MicaWPF, and CommunityToolkit.MVVM libraries provide a sleek and contemporary look, making subnet calculations a visually delightful experience.
