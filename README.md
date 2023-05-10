@@ -148,6 +148,14 @@ Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+<!-- Privacy Policy -->
+## Privacy Policy 🛡️
+
+Please read this `privacy_policy.md` carefully to understand our policies and practices regarding your information and how we will treat it.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 <!-- NOTICE -->
 ## Built With 🛠️
