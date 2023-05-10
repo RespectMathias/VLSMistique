@@ -97,14 +97,14 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 
 <!-- GETTING STARTED -->
 ## Getting Started 🚀
-To get a local copy up and running, follow these simple steps:
-1. **Clone the repo** 'git clone https://github.com/RespectMathias/VLSMistique.git'
-2. **Open project in Visual Studio**
-3. **Build and run the project**
-
 **Prerequisites:**
 * [.NET 7.0 desktop runtime](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 * Windows 10 or newer
+
+**To get a local copy up and running, follow these simple steps:**
+1. **Clone the repo** `git clone https://github.com/RespectMathias/VLSMistique.git`
+2. **Open project in Visual Studio**
+3. **Build and run the project**
 
 **Installation:**
 1. Download the **MSIXBundle** and **batch** from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
