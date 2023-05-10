@@ -168,10 +168,10 @@ See `NOTICE.txt` for more information.
 
 <!-- CONTACT -->
 ## Contact 📧
+If you have any questions, comments, or concerns contact me through the github page:
 
-Mathias Lund-Hansen - [@Linkedin](https://www.linkedin.com/in/mathias-lund-hansen-776800264/)
-
-Project Link: [https://github.com/RespectMathias/VLSMistique](https://github.com/RespectMathias/VLSMistique)
+- LinkedIn: [@Linkedin](https://www.linkedin.com/in/mathias-lund-hansen-776800264/)
+- Project Link: [https://github.com/RespectMathias/VLSMistique](https://github.com/RespectMathias/VLSMistique)
 
 Unlock the full potential of your network management with **VLSMistique** - the premier solution for all your IP subnetting needs!
 
