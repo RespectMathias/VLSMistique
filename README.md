@@ -84,12 +84,12 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 * **Time-Saving:** Say goodbye to manual subnet calculations and let VLSMistique save you valuable time and effort.
 
 #### Windows 11 Mica themes
-![scr_light](images/screenshot_light.png)
 ![scr_dark](images/screenshot_dark.png)
+![scr_light](images/screenshot_light.png)
 
 #### Windows 10 themes
-![scr_light_win10](images/screenshot_light_win10.png)
 ![scr_dark_win10](images/screenshot_dark_win10.png)
+![scr_light_win10](images/screenshot_light_win10.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
