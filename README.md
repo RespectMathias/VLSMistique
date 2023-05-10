@@ -78,11 +78,13 @@ This project is a Windows-based calculator that helps you calculate subnets usin
 * Calculates subnets using a given IP, the amount of subnets and hosts for each subnet
 * Windows-based application
 
-#### Light theme
+#### Windows 11 Mica themes
 ![scr_light](images/screenshot_light.png)
+![scr_dark](images/screenshot_dark.png)
 
-#### Dark theme
-![scr_light](images/screenshot_dark.png)
+#### Windows 10 themes
+![scr_light_win10](images/screenshot_light_win10.png)
+![scr_dark_win10](images/screenshot_dark_win10.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -91,7 +93,7 @@ This project is a Windows-based calculator that helps you calculate subnets usin
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To use the VLSM Calculator, you need to have the .NET framework installed on your Windows machine. You can download and install the framework from the official Microsoft website. Once you have installed the framework, you can download the installer from the release and run it to install the VLSM Calculator.
+To use the VLSM Calculator, you need to have the .NET framework installed on your Windows machine. You can download and install the framework from the official Microsoft website. Once you have installed the framework, you can download the msix installer from the release and run it to install the VLSM Calculator.
 
 
 ### Prerequisites
@@ -101,8 +103,8 @@ To use the VLSM Calculator, you need to have the .NET framework installed on you
 
 ### Installation - Windows Only
 
-1. Download from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
-2. Unzip or use the installer
+1. Download the **MSIXBundle** and **batch** from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
+2. Keep them in the same folder and **run** the batch to apply certificate and install
 3. And voilà!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -112,11 +114,11 @@ To use the VLSM Calculator, you need to have the .NET framework installed on you
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To use the VLSM Calculator, simply enter the required information in the input fields and click on the "Calculate" button. The application will then calculate the subnets and display the results in the output fields.
+To use the VLSM Calculator, simply enter the required information in the input fields and click on the **Calculate** button. The application will then calculate the subnets and display the results in the output fields.
 
-1. Input the amount of subnets you need
-2. Input the IP-Address you want the subnets for
-3. Input the hosts you need for each subnet in their respective grid
+1. Input the amount of **subnets** you need
+2. Input the **IP-Address** you want the subnets for
+3. Input the **hosts** you need for each subnet in their respective grid
 
 
 
@@ -125,9 +127,10 @@ To use the VLSM Calculator, simply enter the required information in the input f
 
 - [x] Use CommunityToolkit.MVVM for MVVM
 - [x] Updating theme and icon to match windows 11
-- [ ] Optimizing for performance
-- [ ] Make a NSIX installer
+- [x] Make a MSIXBundle installer
 - [ ] Add to Microsoft store
+- [ ] Port to .NET MAUI
+  - [ ] Add multiplatform support
 
 See the [open issues](https://github.com/RespectMathias/VLSMistique/issues) for a full list of proposed features (and known issues).
 
