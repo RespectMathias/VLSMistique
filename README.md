@@ -102,11 +102,11 @@ To get a local copy up and running, follow these simple steps:
 2. **Open project in Visual Studio**
 3. **Build and run the project**
 
-### Installation
 **Prerequisites:**
 * [.NET 7.0 desktop runtime](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 * Windows 10 or newer
 
+**Installation**
 1. Download the **MSIXBundle** and **batch** from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
 2. Keep them in the same folder and **run** the batch to apply certificate and install
 3. And voilà!
