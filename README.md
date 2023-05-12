@@ -78,10 +78,14 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 2. **Open project in Visual Studio**
 3. **Build and run the project**
 
-**Installation:**
-1. Download the **MSIXBundle** and **batch** from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
-2. Keep them in the same folder and **run** the batch to apply certificate and install
-3. And voilà!
+**Installation options:**
+1. Download the **MSIXbundle** from the [releases](https://github.com/RespectMathias/VLSMistique/releases/)
+2. Download with **winget**: `winget intall 9NJWP0N012LW` 
+3. Download it directly from the **microsoft store**:
+
+<a href="https://apps.microsoft.com/store/detail/9NJWP0N012LW?launch=true&mode=mini">
+	<img src="https://github.com/RespectMathias/VLSMistique/blob/main/images/ms-dark.svg"/>
+</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
