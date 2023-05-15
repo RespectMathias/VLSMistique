@@ -16,7 +16,7 @@
     <img src="images/icon.svg" alt="Logo" width="256" height="256">
   </a>
 
-<h3 align="center">VLSMistique</h3>
+<h3 align="center">VLSMistique Legacy</h3>
 
   <p align="center">
     A VLSM Calculator that Calculates subnets using a given IP, the amount of subnets and hosts for each subnet.
