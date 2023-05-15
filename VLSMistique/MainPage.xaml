@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ViewModels="clr-namespace:VLSMistique.ViewModels"
+             xmlns:Models="clr-namespace:VLSMistique.Models"
+             x:Class="VLSMistique.MainPage"
+             x:DataType="ViewModels:MainPageViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:IntToBoolConverter x:Key="IntToBoolConverter" />
+            <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="#FF5555" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <!-- Amount of Subnets Input -->
+                <Label Text="Subnet Amount:" Margin="5,5,5,5" VerticalOptions="Center" />
+                <Entry Margin="5,5,5,5"
+               Text="{Binding SubnetAmount, Mode=TwoWay}" >
+                    <Entry.Behaviors>
+                        <toolkit:NumericValidationBehavior 
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            Flags="ValidateOnValueChanged"
+                            MinimumValue="1"
+                            MaximumValue="99" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <!-- IPAddress Input -->
+                <Label Text="IP Address:" Margin="5,5,5,5" VerticalOptions="Center" />
+                <Entry Margin="5,5,5,5"
+               Text="{Binding Address, Mode=TwoWay}">
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            Flags="ValidateOnValueChanged"
+                            RegexPattern="^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <!-- CollectionView Header -->
+                <Grid ColumnSpacing="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Margin="5,5,5,5" Text="Req. Host" />
+                            <Label Grid.Column="1" Margin="5,5,5,5" Text="Max Hosts" />
+                            <Label Grid.Column="2" Margin="5,5,5,5" Text="Subnet Mask" />
+                            <Label Grid.Column="3" Margin="5,5,5,5" Text="Network Address" />
+                            <Label Grid.Column="4" Margin="5,5,5,5" Text="Range" />
+                            <Label Grid.Column="5" Margin="5,5,5,5" Text="Broadcast Address" />
+                            <BoxView Grid.Row="1" Grid.ColumnSpan="6" HeightRequest="1" BackgroundColor="Black" />
+                        </Grid>
+                
+                <!-- Subnets CollectionView -->
+                <CollectionView Margin="5,5,5,5"
+                            ItemsSource="{Binding Subnets}" >
+                    <CollectionView.ItemTemplate CachingStrategy="RecycleElement">
+                        <DataTemplate x:DataType="Models:SubnetModel">
+                            <Grid ColumnSpacing="1" Margin="0,5,0,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Entry Grid.Column="0"
+                               Text="{Binding HostAmount, Mode=TwoWay}" >
+                                    <Entry.Behaviors>
+                                        <toolkit:NumericValidationBehavior 
+                                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                        Flags="ValidateOnValueChanged"
+                                        MinimumValue="1"
+                                        MaximumValue="254" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Entry Grid.Column="1" Text="{Binding MaxSubnetHosts}" IsReadOnly="True">
+                                    <Entry.Style>
+                                        <Style TargetType="Entry">
+                                            <Style.Triggers>
+                                                <DataTrigger TargetType="Entry" Binding="{Binding MaxSubnetHosts, Converter={StaticResource IntToBoolConverter}}" Value="False">
+                                                    <Setter Property="TextColor" Value="Transparent" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Entry.Style>
+                                </Entry>
+                                <Entry Grid.Column="2" IsReadOnly="True"
+                               Text="{Binding Mask}" />
+                                <Entry Grid.Column="3" IsReadOnly="True"
+                               Text="{Binding NetworkAddress}" />
+                                <Entry Grid.Column="4" IsReadOnly="True"
+                               Text="{Binding Range}" />
+                                <Entry Grid.Column="5" IsReadOnly="True"
+                               Text="{Binding BroadcastAddress}" />
+                                <BoxView Grid.Row="1" Grid.ColumnSpan="6" HeightRequest="1" BackgroundColor="Black" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Buttons StackLayout -->
+        <StackLayout VerticalOptions="End">
+            <!-- Calculate Subnets Button -->
+            <Button Text="Calculate" Margin="5,5,5,5"
+                    Command="{Binding CalculateSubnetsCommand}" />
+
+            <!-- Export Button -->
+            <Button Text="Export..." Margin="5,5,5,5"
+                    Command="{Binding ExportCommand}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

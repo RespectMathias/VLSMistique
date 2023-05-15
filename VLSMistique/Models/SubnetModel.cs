@@ -14,7 +14,6 @@
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Net;
-using VLSMistique.Interfaces;
 
 namespace VLSMistique.Models
 {

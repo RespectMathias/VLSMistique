@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Colors -->
+    <Color x:Key="Primary">#1874CD</Color>
+    <Color x:Key="Secondary">#E1E1F5</Color>
+    <Color x:Key="Tertiary">#BFC2D6</Color>
+    <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="Black">#000000</Color>
+    <Color x:Key="Gray100">#F7F7F7</Color>
+    <Color x:Key="Gray200">#EDEDF0</Color>
+    <Color x:Key="Gray300">#D1D3DE</Color>
+    <Color x:Key="Gray400">#C5C7D3</Color>
+    <Color x:Key="Gray500">#A7AAC6</Color>
+    <Color x:Key="Gray600">#7F8399</Color>
+    <Color x:Key="Gray900">#3F4254</Color>
+    <Color x:Key="Gray950">#2F3244</Color>
+
+    <!-- Brush colors -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
+    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
+    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
+    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
+    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
+    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+
+    <!-- Accent colors -->
+    <Color x:Key="Yellow100Accent">#FCCB58</Color>
+    <Color x:Key="Yellow200Accent">#FEDC9B</Color>
+    <Color x:Key="Yellow300Accent">#FEF1C8</Color>
+    <Color x:Key="Cyan100Accent">#3CB1C2</Color>
+    <Color x:Key="Cyan200Accent">#A7DCE6</Color>
+    <Color x:Key="Cyan300Accent">#D1EEF2</Color>
+    <Color x:Key="Blue100Accent">#1874CD</Color>
+    <Color x:Key="Blue200Accent">#6799DB</Color>
+    <Color x:Key="Blue300Accent">#A3C3E8</Color>
+
+</ResourceDictionary>
