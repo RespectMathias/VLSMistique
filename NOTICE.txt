@@ -2,8 +2,9 @@ VLSMistique
 Copyright (c) 2023 Mathias Lund-Hansen
 My WPF Project is an VLSM Calculator application that Calculates subnets using a given IP, the amount of subnets and hosts for each subnet
 
-Third-Party Libraries and Copyright Notices for .NET MAUI framework, Community Toolkit MAUI and Community Toolkit MVVM
-----------------------------------------------------------------------------------------------------------------------
+Third-Party Libraries and Copyright Notices for
+.NET MAUI framework, Community Toolkit MAUI and Community Toolkit MVVM
+-----------------------------------------------------------------------
 
 Copyright (c) .NET Foundation and Contributors
 
