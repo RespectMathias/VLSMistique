@@ -108,25 +108,16 @@
                                         MaximumValue="254" />
                                     </Entry.Behaviors>
                                 </Entry>
-                                <Entry Grid.Column="1" Text="{Binding MaxSubnetHosts}" IsReadOnly="True">
-                                    <Entry.Style>
-                                        <Style TargetType="Entry">
-                                            <Style.Triggers>
-                                                <DataTrigger TargetType="Entry" Binding="{Binding MaxSubnetHosts, Converter={StaticResource IntToBoolConverter}}" Value="False">
-                                                    <Setter Property="TextColor" Value="Transparent" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Entry.Style>
-                                </Entry>
+                                <Entry Grid.Column="1" IsReadOnly="True"
+                                       Text="{Binding MaxSubnetHosts}" />
                                 <Entry Grid.Column="2" IsReadOnly="True"
-                               Text="{Binding Mask}" />
+                                       Text="{Binding Mask}" />
                                 <Entry Grid.Column="3" IsReadOnly="True"
-                               Text="{Binding NetworkAddress}" />
+                                       Text="{Binding NetworkAddress}" />
                                 <Entry Grid.Column="4" IsReadOnly="True"
-                               Text="{Binding Range}" />
+                                       Text="{Binding Range}" />
                                 <Entry Grid.Column="5" IsReadOnly="True"
-                               Text="{Binding BroadcastAddress}" />
+                                       Text="{Binding BroadcastAddress}" />
                                 <BoxView Grid.Row="1" Grid.ColumnSpan="6" HeightRequest="1" BackgroundColor="Black" />
                             </Grid>
                         </DataTemplate>

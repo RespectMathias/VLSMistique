@@ -120,7 +120,7 @@ namespace VLSMistique.ViewModels
             Subnets.Clear();
             for (int i = 1; i <= count; i++)
             {
-                var newSubnet = new SubnetModel(null, null, null, null, 0, 0);
+                var newSubnet = new SubnetModel(null, null, null, null, null, 0);
                 newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput();
                 Subnets.Add(newSubnet);
             }

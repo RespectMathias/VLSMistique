@@ -55,7 +55,7 @@ namespace VLSMistique.Models
                 var range = $"{FirstAddress} - {LastAddress}";
 
                 // Add the subnet to the list
-                var subnetModel = new SubnetModel(broadcastAddress, networkAddress, mask, range, hostAmount, maxSubnetHosts);
+                var subnetModel = new SubnetModel(broadcastAddress, networkAddress, mask, range, maxSubnetHosts, hostAmount);
                 subnets.Add(subnetModel);
 
                 ip = GetNextAddress(broadcastAddress);
@@ -75,14 +75,15 @@ namespace VLSMistique.Models
             
             return new IPAddress(ipBytes);
         }
-
+        
         /// <summary> Calculates the maximum amount of hosts from the required hosts. </summary>
-        private static int GetMaxSubnetHosts(int hostAmount)
+        private static string GetMaxSubnetHosts(int hostAmount)
         {
             var subnetHosts = (int)Math.Ceiling(Math.Log(hostAmount + 2, 2));
             subnetHosts = (int)Math.Pow(2, subnetHosts);
-            
-            return subnetHosts - 2;
+            subnetHosts -= 2;
+
+            return subnetHosts.ToString();
         }
 
         /// <summary> Calculates the CIDR notation from the required hosts. </summary>

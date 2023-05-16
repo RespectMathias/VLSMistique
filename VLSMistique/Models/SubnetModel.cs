@@ -53,17 +53,17 @@ namespace VLSMistique.Models
 
         /// <summary> The maximum amount of hosts in the subnet. </summary>
         [ObservableProperty]
-        public int _maxSubnetHosts;
+        public string _maxSubnetHosts;
 
         /// <summary> Contains the values of the subnet. </summary>
-        public SubnetModel(IPAddress broadcastAddress, IPAddress networkAddress, IPAddress mask, string range, int hostAmount, int maxSubnetHosts)
+        public SubnetModel(IPAddress broadcastAddress, IPAddress networkAddress, IPAddress mask, string range, string maxSubnetHosts, int hostAmount)
         {
             BroadcastAddress = broadcastAddress;
             NetworkAddress = networkAddress;
             Mask = mask;
             Range = range;
-            HostAmount = hostAmount;
             MaxSubnetHosts = maxSubnetHosts;
+            HostAmount = hostAmount;
         }
     }
 }
