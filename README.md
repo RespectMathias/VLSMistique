@@ -36,11 +36,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project 🌐
 
-Tired of manually calculating subnets for your networks? Say hello to VLSMistique - a sleek and powerful Windows-based application that simplifies subnetting in a visually stunning and user-friendly interface.
+Tired of manually calculating subnets for your networks? Say hello to VLSMistique - a sleek and powerful Multi-platform application that simplifies subnetting in a visually stunning and user-friendly interface.
 
 1. Input the amount of **subnets** you need
 2. Input the **IP-Address** you want the subnets for
-3. Input the **hosts** you need for each subnet in their respective grid
+3. Input the **hosts** you need for each subnet in their respective entry
 
 ![Usage GIF](images/usage.gif)
 
@@ -51,8 +51,8 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 ## Key Features 💡
 
 * **Effortless Subnet Calculations:** Simply enter the IP address, the desired number of subnets, and the number of hosts for each subnet, and let VLSMistique work its magic!
-* **Stunning User Interface:** The ModernWPF, MicaWPF, and CommunityToolkit.MVVM libraries provide a sleek and contemporary look, making subnet calculations a visually delightful experience.
-* **Windows Compatibility:** Seamlessly integrates with your Windows environment for a smooth and hassle-free experience.
+* **Stunning User Interface:** The WinUI, CommunityToolkit.MVVM and CommunityToolkit.MAUI libraries provide a sleek and contemporary look, making subnet calculations a visually delightful experience.
+* **Multi-Platform:** Seamlessly integrates with any environment for a smooth and hassle-free experience.
 * **Time-Saving:** Say goodbye to manual subnet calculations and let VLSMistique save you valuable time and effort.
 
 #### Screenshots
@@ -95,9 +95,10 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 - [x] Use CommunityToolkit.MVVM for MVVM
 - [x] Updating theme and icon to match windows 11
 - [x] Make a MSIXBundle installer
-- [ ] Add to Microsoft store
-- [ ] Port to .NET MAUI
-  - [ ] Add multiplatform support
+- [x] Add to Microsoft store
+- [x] Port to .NET MAUI
+  - [x] Add multiplatform support
+  - [x] Add export as csv capability
 
 See the [open issues](https://github.com/RespectMathias/VLSMistique/issues) for a full list of proposed features (and known issues).
 
@@ -108,11 +109,11 @@ See the [open issues](https://github.com/RespectMathias/VLSMistique/issues) for 
 <!-- NOTICE -->
 ## Built With 🛠️
 
-* [ModernWPF framework](https://github.com/Kinnara/ModernWpf)
-Modern styles and controls for your WPF applications.
-* [MicaWPF library](https://github.com/Simnico99/MicaWPF)
-This is a library to make Mica available in WPF.
-* [Community Toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
+* [.NET MAUI framework](https://github.com/dotnet/maui)
+.NET MAUI is a cross-platform framework for creating mobile and desktop apps with C# and XAML.
+* [Community Toolkit MAUI](https://github.com/CommunityToolkit/Maui)
+It simplifies and demonstrates common developer tasks when building apps with .NET MAUI.
+* [Community Toolkit MVVM](https://github.com/CommunityToolkit/WindowsCommunityToolkit)
 Provides a simplified method of implementing MVVM.
 
 See `NOTICE.txt` for more information.
