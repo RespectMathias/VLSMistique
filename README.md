@@ -59,7 +59,7 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 ![scr_dark](images/screenshot_dark.png)
 ![scr_light](images/screenshot_light.png)
 ![scr_calc](images/screenshot_calc.png)
-![scr_export](images/screenshot_export_.png)
+![scr_export](images/screenshot_export.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
