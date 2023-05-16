@@ -168,13 +168,12 @@ namespace VLSMistique.ViewModels
             var listSeparator = CultureInfo.CurrentCulture.TextInfo.ListSeparator;
             var delimiter = listSeparator == "," ? "," : ";";
 
-            csv.AppendLine($"Broadcast Address{delimiter}Network Address{delimiter}Mask{delimiter}Range{delimiter}Host Amount{delimiter}Max Subnet Hosts");
+            csv.AppendLine($"Required Host{delimiter}Available Hosts{delimiter}Subnet Mask{delimiter}Network Address{delimiter}Range{delimiter}Broadcast Address");
 
             foreach (var subnet in Subnets)
             {
-                csv.AppendLine($"{subnet.BroadcastAddress}{delimiter}{subnet.NetworkAddress}{delimiter}{subnet.Mask}{delimiter}{subnet.Range}{delimiter}{subnet.HostAmount}{delimiter}{subnet.MaxSubnetHosts}");
+                csv.AppendLine($"{subnet.HostAmount}{delimiter}{subnet.MaxSubnetHosts}{delimiter}{subnet.Mask}{delimiter}{subnet.BroadcastAddress}{delimiter}{subnet.Range}{delimiter}{subnet.NetworkAddress}");
             }
-
             return csv.ToString();
         }
     }

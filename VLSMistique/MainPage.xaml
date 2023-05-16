@@ -71,8 +71,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Margin="5,5,5,5" Text="Req. Host" />
-                            <Label Grid.Column="1" Margin="5,5,5,5" Text="Max Hosts" />
+                            <Label Grid.Column="0" Margin="5,5,5,5" Text="Required Host" />
+                            <Label Grid.Column="1" Margin="5,5,5,5" Text="Available Hosts" />
                             <Label Grid.Column="2" Margin="5,5,5,5" Text="Subnet Mask" />
                             <Label Grid.Column="3" Margin="5,5,5,5" Text="Network Address" />
                             <Label Grid.Column="4" Margin="5,5,5,5" Text="Range" />
