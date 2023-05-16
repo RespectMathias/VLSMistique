@@ -40,13 +40,12 @@ namespace VLSMistique.Models
 
                 var cidr = GetCidrFromHosts(hostAmount);
 
-                var subnetMask = GetSubnetMask(cidr);
-                var mask = subnetMask.ToString();
+                var mask = GetSubnetMask(cidr);
 
-                var networkAddress = GetNetworkAddress(ip, subnetMask);
+                var networkAddress = GetNetworkAddress(ip, mask);
 
                 // Calculate the broadcast
-                var broadcastAddress = GetBroadcastAddress(ip, subnetMask);
+                var broadcastAddress = GetBroadcastAddress(ip, mask);
 
                 
                 var FirstAddress = GetFirstAddress(networkAddress);

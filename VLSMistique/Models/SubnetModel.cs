@@ -20,9 +20,20 @@ namespace VLSMistique.Models
     /// <summary> The class that represents a subnet. </summary>
     public partial class SubnetModel : ObservableObject
     {
+        private int _hostAmount;
         /// <summary> The required amount of hosts of the subnet. </summary>
-        [ObservableProperty]
-        public int _hostAmount;
+        public int HostAmount
+        {
+            get => _hostAmount;
+            set
+            {
+                if (SetProperty(ref _hostAmount, value))
+                {
+                    HostAmountChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+        public event EventHandler HostAmountChanged;
 
         /// <summary> The Broadcast Address of the subnet. </summary>
         [ObservableProperty]
@@ -34,7 +45,7 @@ namespace VLSMistique.Models
 
         /// <summary> The Subnet Mask of the subnet. </summary>
         [ObservableProperty]
-        public string _mask;
+        public IPAddress _mask;
 
         /// <summary> The IP-range of the subnet. Meaning the first and last IP-address of the subnet. </summary>
         [ObservableProperty]
@@ -45,7 +56,7 @@ namespace VLSMistique.Models
         public int _maxSubnetHosts;
 
         /// <summary> Contains the values of the subnet. </summary>
-        public SubnetModel(IPAddress broadcastAddress, IPAddress networkAddress, string mask, string range, int hostAmount, int maxSubnetHosts)
+        public SubnetModel(IPAddress broadcastAddress, IPAddress networkAddress, IPAddress mask, string range, int hostAmount, int maxSubnetHosts)
         {
             BroadcastAddress = broadcastAddress;
             NetworkAddress = networkAddress;

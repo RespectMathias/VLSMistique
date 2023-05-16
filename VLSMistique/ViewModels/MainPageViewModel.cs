@@ -40,19 +40,30 @@ namespace VLSMistique.ViewModels
         private ObservableCollection<SubnetModel> _subnets = new ObservableCollection<SubnetModel>();
         private readonly IFileSaver _fileSaver = FileSaver.Default;
         private readonly IVLSMCalculatorModel _calculatorModel;
+        private bool _validateInput;
+        
+        public bool ValidateInput
+        {
+            get => _validateInput;
+            set => SetProperty(ref _validateInput, value);
+        }
 
         /// <summary> Gets or sets the IP address. </summary>
         public string Address
         {
             get => _address;
-            set => SetProperty(ref _address, value);
+            set
+            {
+                SetProperty(ref _address, value);
+                UpdateValidateInput();
+            } 
         }
-        
+
         /// <summary> Gets the subnets. </summary>
         public ObservableCollection<SubnetModel> Subnets
         {
             get => _subnets;
-            private set => SetProperty(ref _subnets, value);
+            set => SetProperty(ref _subnets, value);
         }
 
         /// <summary> Gets or sets the amount of subnets. </summary>
@@ -63,50 +74,43 @@ namespace VLSMistique.ViewModels
             {
                 SetProperty(ref _subnetAmount, value);
                 AddSubnets(value);
+                UpdateValidateInput();
             }
         }
-
-        /// <summary> Gets the host amounts from the subnets and orders them in descending order. </summary>
-        public List<int> HostAmounts => Subnets.Select(subnet => subnet.HostAmount).OrderByDescending(amount => amount).ToList();
 
         public MainPageViewModel()
         {
+            ValidateInput = false;
             _calculatorModel = new VLSMCalculatorModel() ?? throw new ArgumentNullException(nameof(_calculatorModel));
         }
 
-
+        /// <summary> Calculates the Subnets. </summary>
         [RelayCommand]
-        private async void CalculateSubnets()
+        private void CalculateSubnets()
         {
-            if (!ValidateInput(out string invalidField))
-            {
-                await Toast.Make($"Invalid input: {invalidField}").Show();
-                return;
-            }
-
-            var subnets = _calculatorModel.CalculateSubnets(Address, SubnetAmount, HostAmounts);
+            var hostAmounts = Subnets.Select(subnet => subnet.HostAmount).OrderByDescending(amount => amount).ToList();
+            var newSubnets = _calculatorModel.CalculateSubnets(Address, SubnetAmount, hostAmounts);
             Subnets.Clear();
-            HostAmounts.Clear();
 
-            foreach (var subnet in subnets)
-                Subnets.Add(subnet);
+            foreach (var newSubnet in newSubnets)
+            {
+                newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput();
+                Subnets.Add(newSubnet);
+            }
         }
 
         /// <summary> Validates the input for the calculation. </summary>
-        private bool ValidateInput(out string invalidField)
+        private void UpdateValidateInput()
         {
-            invalidField = string.Empty;
+            var isSubnetAmountValid = SubnetAmount > 0 && SubnetAmount < 100;
+            var isAddressValid = !string.IsNullOrEmpty(Address) && Regex.IsMatch(Address, @"^\d{1,3}\.\d{1,3}\.\d{1,3}\.(\d{1,3})$");
+            var areAllHostAmountsValid = Subnets.All(subnet => subnet.HostAmount > 0 && subnet.HostAmount < 255);
 
-            invalidField = SubnetAmount <= 0 ? "Subnet Amount" :
-                           string.IsNullOrEmpty(Address) ? "Address" :
-                           HostAmounts.Any(h => h <= 0 || h >= 255) ? "Host Amount" :
-                           !Regex.IsMatch(Address, @"^\d{1,3}\.\d{1,3}\.\d{1,3}\.(\d{1,3})$") ? "Address format" :
-                           string.Empty;
-
-            return string.IsNullOrEmpty(invalidField);
+            ValidateInput = isSubnetAmountValid && isAddressValid && areAllHostAmountsValid;
         }
 
-        /// <summary> Adds the subnets to the subnet grid. </summary>
+
+        /// <summary> Populates Subnets. </summary>
         private void AddSubnets(int count)
         {
             //Input limitations
@@ -114,9 +118,12 @@ namespace VLSMistique.ViewModels
                 return;
 
             Subnets.Clear();
-            HostAmounts.Clear();
             for (int i = 1; i <= count; i++)
-                Subnets.Add(new SubnetModel(null, null, null, null, 0, 0));
+            {
+                var newSubnet = new SubnetModel(null, null, null, null, 0, 0);
+                newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput();
+                Subnets.Add(newSubnet);
+            }
         }
 
         [RelayCommand]
@@ -130,14 +137,14 @@ namespace VLSMistique.ViewModels
                 //Variables
                 var promptTitle = "Export Subnets";
                 var promptMessage = "Enter a filename (CSV format):";
-                var defaultFileName = $"Network_{DateTime.Now:HHmmss}";
+                var defaultFileName = $"Network_{DateTime.Now:yyyyMMHHmmss}";
                 var fileExtension = ".csv";
 
                 //User Input
                 var fileNameInput = await Application.Current.MainPage.DisplayPromptAsync(promptTitle, promptMessage, cancel: "Cancel", initialValue: defaultFileName);
 
                 //If user cancels
-                if (string.Equals(fileNameInput?.Trim(), "Cancel", StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(fileNameInput?.Trim(), "Cancel", StringComparison.OrdinalIgnoreCase) || string.IsNullOrWhiteSpace(fileNameInput))
                     throw new Exception("Export cancelled by user.");
 
                 var fileName = fileNameInput.Trim() + fileExtension;
