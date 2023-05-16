@@ -55,13 +55,11 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 * **Windows Compatibility:** Seamlessly integrates with your Windows environment for a smooth and hassle-free experience.
 * **Time-Saving:** Say goodbye to manual subnet calculations and let VLSMistique save you valuable time and effort.
 
-#### Windows 11 Mica themes
+#### Screenshots
 ![scr_dark](images/screenshot_dark.png)
 ![scr_light](images/screenshot_light.png)
-
-#### Windows 10 themes
-![scr_dark_win10](images/screenshot_dark_win10.png)
-![scr_light_win10](images/screenshot_light_win10.png)
+![scr_calc](images/screenshot_calc.png)
+![scr_export](images/screenshot_export_.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
