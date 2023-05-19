@@ -117,7 +117,7 @@ namespace VLSMistique.ViewModels
                 if (string.Equals(fileNameInput?.Trim(), "Cancel", StringComparison.OrdinalIgnoreCase) || string.IsNullOrWhiteSpace(fileNameInput))
                     throw new Exception("Export cancelled by user.");
 
-                var fileName = fileNameInput.Trim() + fileExtension;
+                var fileName = $"{fileNameInput.Trim()}{fileExtension}";
                 var fileLocationResult = await _fileSaver.SaveAsync(fileName, stream, cancellationToken);
                 fileLocationResult.EnsureSuccess();
 
