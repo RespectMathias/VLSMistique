@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
+[![Branches][branches-shield]][branches-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![Apache 2.0 License][license-shield]][license-url]
@@ -165,8 +165,8 @@ Unlock the full potential of your network management with **VLSMistique** - the 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/RespectMathias/VLSMistique.svg?style=for-the-badge
 [contributors-url]: https://github.com/RespectMathias/VLSMistique/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/RespectMathias/VLSMistique.svg?style=for-the-badge
-[forks-url]: https://github.com/RespectMathias/VLSMistique/network/members
+[branches-shield]: https://img.shields.io/github/branches/RespectMathias/VLSMistique.svg?style=for-the-badge
+[branches-url]: https://github.com/RespectMathias/VLSMistique/branches
 [stars-shield]: https://img.shields.io/github/stars/RespectMathias/VLSMistique.svg?style=for-the-badge
 [stars-url]: https://github.com/RespectMathias/VLSMistique/stargazers
 [issues-shield]: https://img.shields.io/github/issues/RespectMathias/VLSMistique.svg?style=for-the-badge
