@@ -37,7 +37,7 @@
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>
 		<AppInstallerUri>c:\AppxPackages</AppInstallerUri>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-		<Platforms>AnyCPU;ARM64;x64;x86</Platforms>
+		<Platforms>AnyCPU;x64;x86</Platforms>
 	</PropertyGroup>
 
 	<ItemGroup>
