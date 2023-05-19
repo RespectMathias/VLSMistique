@@ -82,7 +82,7 @@ Tired of manually calculating subnets for your networks? Say hello to VLSMistiqu
 3. Download it directly from the **microsoft store**:
 
 <a href="https://apps.microsoft.com/store/detail/9NJWP0N012LW?launch=true&mode=mini">
-	<img src="https://github.com/RespectMathias/VLSMistique/blob/main/images/ms-dark.svg"/>
+	<img src="https://github.com/RespectMathias/VLSMistique/blob/main/images/ms-dark.svg" width="256" height="256"/>
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
