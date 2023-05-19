@@ -1,4 +1,5 @@
-﻿/*   Copyright 2023 Mathias Lund-Hansen
+﻿/*
+ *    Copyright 2023 Mathias Lund-Hansen
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -10,18 +11,19 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. */
+ *  limitations under the License.
+ */
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Net;
 
 namespace VLSMistique.Models
 {
-    /// <summary> The class that represents a subnet. </summary>
+    /// <summary> Representation of a subnet. </summary>
     public partial class SubnetModel : ObservableObject
     {
         private int _hostAmount;
-        /// <summary> The required amount of hosts of the subnet. </summary>
+        /// <summary> Gets or sets the number of hosts in the subnet. </summary>
         public int HostAmount
         {
             get => _hostAmount;
@@ -35,15 +37,15 @@ namespace VLSMistique.Models
         }
         public event EventHandler HostAmountChanged;
 
-        /// <summary> The Broadcast Address of the subnet. </summary>
+        /// <summary> The last IP address in the subnet, which is reserved for broadcast. </summary>
         [ObservableProperty]
         public IPAddress _broadcastAddress;
 
-        /// <summary> The Network Address of the subnet. </summary>
+        /// <summary> The first IP address in the subnet, which is reserved for network addressing. </summary>
         [ObservableProperty]
         public IPAddress _networkAddress;
 
-        /// <summary> The Subnet Mask of the subnet. </summary>
+        /// <summary> The subnet mask which determines the IP range of the subnet. </summary>
         [ObservableProperty]
         public IPAddress _mask;
 
@@ -51,11 +53,11 @@ namespace VLSMistique.Models
         [ObservableProperty]
         public string _range;
 
-        /// <summary> The maximum amount of hosts in the subnet. </summary>
+        /// <summary> The maximum number of hosts that the subnet can support. </summary>
         [ObservableProperty]
         public string _maxSubnetHosts;
 
-        /// <summary> Contains the values of the subnet. </summary>
+        /// <summary> Constructs a new instance of the SubnetModel class. Which represents a subnet. </summary>
         public SubnetModel(IPAddress broadcastAddress, IPAddress networkAddress, IPAddress mask, string range, string maxSubnetHosts, int hostAmount)
         {
             BroadcastAddress = broadcastAddress;

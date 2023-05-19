@@ -1,4 +1,7 @@
-﻿/*
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+/*
  *    Copyright 2023 Mathias Lund-Hansen
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,8 +17,6 @@
  *  limitations under the License.
  */
 
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,12 @@ using VLSMistique.Models;
 
 namespace VLSMistique.Interfaces
 {
-    /// <summary> Rhe interface for VLSM calculator model. </summary>
-    public interface IVLSMCalculatorModel
+    /// <summary> Interface for converting a collection of subnet models to a CSV string. </summary>
+    public interface ICsvConverter
     {
-        /// <summary> Calculates subnets based on the provided IP address, subnet amount, and host amounts. </summary>
-        /// <param name="ipAddress">The IP address.</param>
-        /// <param name="subnetAmount">The number of subnets.</param>
-        /// <param name="hostAmounts">The list of host amounts for each subnet.</param>
-        /// <returns>A list of subnet models.</returns>
-        List<SubnetModel> CalculateSubnets(string ipAddress, int subnetAmount, List<int> hostAmounts);
+        /// <summary> Converts the collection of subnet models to a CSV string. </summary>
+        /// <param name="subnets">The collection of subnet models to convert.</param>
+        /// <returns>The CSV string representation of the subnet models.</returns>
+        string Convert(ObservableCollection<SubnetModel> subnets);
     }
 }

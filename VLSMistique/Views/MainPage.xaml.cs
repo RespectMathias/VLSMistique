@@ -1,14 +1,14 @@
 ﻿using VLSMistique.ViewModels;
-using Microsoft.Maui.Controls;
-using CommunityToolkit.Maui.Storage;
 
-namespace VLSMistique
+namespace VLSMistique.Views
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
+
+            // Set the BindingContext to an instance of the ViewModel.
             BindingContext = new MainPageViewModel();
         }
     }

@@ -1,4 +1,5 @@
-﻿/*   Copyright 2023 Mathias Lund-Hansen
+﻿/*
+ *    Copyright 2023 Mathias Lund-Hansen
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -10,7 +11,8 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. */
+ *  limitations under the License.
+ */
 
 using System;
 using System.Collections.Generic;
@@ -19,65 +21,68 @@ using VLSMistique.Interfaces;
 
 namespace VLSMistique.Models
 {
-
-    /// <summary> The class that calculates the subnets. </summary>
+    /// <summary> Model for VLSM calculation. Implements the <see cref="IVLSMCalculatorModel" /> interface. </summary>
     public class VLSMCalculatorModel : IVLSMCalculatorModel
     {
-        /// <summary> A list that calculates the subnets based on the given IP address, the amont of subnets, and a list of host per subnet. </summary>
+        #region Public Methods
+
+        /// <summary> Generates a list of Subnets based on a given IP address, subnet amount and the amount of hosts per subnet. </summary>
+        /// <param name="ipAddress">The IP address to be subnetted.</param>
+        /// <param name="subnetAmount">The number of subnets to create.</param>
+        /// <param name="hostAmounts">List containing the amounts of hosts for each subnet.</param>
+        /// <returns>A List of type <see cref="SubnetModel" /> representing each subnet.</returns>
         public List<SubnetModel> CalculateSubnets(string ipAddress, int subnetAmount, List<int> hostAmounts)
         {
             var subnets = new List<SubnetModel>();
+            var ip = InitializeAddress(ipAddress);
 
-            var ip = GetAddress(ipAddress);
-
-            // Calculate each subnet
             for (var i = 0; i < subnetAmount; i++)
             {
-                // Get the required number of hosts
                 var hostAmount = hostAmounts[i];
-
-                var maxSubnetHosts = GetMaxSubnetHosts(hostAmount);
-
-                var cidr = GetCidrFromHosts(hostAmount);
-
-                var mask = GetSubnetMask(cidr);
-
-                var networkAddress = GetNetworkAddress(ip, mask);
-
-                // Calculate the broadcast
-                var broadcastAddress = GetBroadcastAddress(ip, mask);
-
-                
-                var FirstAddress = GetFirstAddress(networkAddress);
-                var LastAddress = GetLastAddress(broadcastAddress);
-
-                // Calculate the range for subnet in the form of "FirstAddress - LastAddress"
-                var range = $"{FirstAddress} - {LastAddress}";
-
-                // Add the subnet to the list
-                var subnetModel = new SubnetModel(broadcastAddress, networkAddress, mask, range, maxSubnetHosts, hostAmount);
+                var subnetModel = CreateSubnet(ip, hostAmount);
                 subnets.Add(subnetModel);
-
-                ip = GetNextAddress(broadcastAddress);
+                ip = GetNextAddress(subnetModel.BroadcastAddress);
             }
 
             return subnets;
         }
-        
-        /// <summary> Parses the IPAdress from a string to an IP and sets the last octet to 0. </summary>
-        static IPAddress GetAddress(string ipAddress)
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        /// <summary> Initializes the IP address and set the last octet to 0. </summary>
+        /// <param name="ipAddress">The IP address to be initialized.</param>
+        /// <returns>A new <see cref="IPAddress" /> instance with the last octet set to 0.</returns>
+        private static IPAddress InitializeAddress(string ipAddress)
         {
             var ip = IPAddress.Parse(ipAddress);
-
-            // Set the last octet to 0 to always start with the first subnet
             byte[] ipBytes = ip.GetAddressBytes();
             ipBytes[3] = 0;
-            
+
             return new IPAddress(ipBytes);
         }
-        
-        /// <summary> Calculates the maximum amount of hosts from the required hosts. </summary>
-        private static string GetMaxSubnetHosts(int hostAmount)
+
+        /// <summary> Creates a new subnet based on an IP address and the host amount.</summary>
+        /// <param name="ip">The base IP address for the subnet.</param>
+        /// <param name="hostAmount">The amount of hosts the subnet should be able to hold.</param>
+        /// <returns>A new instance of <see cref="SubnetModel" /> representing the subnet.</returns>
+        private static SubnetModel CreateSubnet(IPAddress ip, int hostAmount)
+        {
+            var maxSubnetHosts = CalculateMaxSubnetHosts(hostAmount);
+            var cidr = CalculateCidrFromHosts(hostAmount);
+            var mask = CalculateSubnetMask(cidr);
+            var networkAddress = CalculateNetworkAddress(ip, mask);
+            var broadcastAddress = CalculateBroadcastAddress(ip, mask);
+            var range = CalculateRange(networkAddress, broadcastAddress);
+
+            return new SubnetModel(broadcastAddress, networkAddress, mask, range, maxSubnetHosts, hostAmount);
+        }
+
+        /// <summary> Calculates the maximum amount of hosts a subnet can hold. </summary>
+        /// <param name="hostAmount">The desired amount of hosts.</param>
+        /// <returns>The maximum amount of hosts the subnet can hold as a string.</returns>
+        private static string CalculateMaxSubnetHosts(int hostAmount)
         {
             var subnetHosts = (int)Math.Ceiling(Math.Log(hostAmount + 2, 2));
             subnetHosts = (int)Math.Pow(2, subnetHosts);
@@ -86,14 +91,18 @@ namespace VLSMistique.Models
             return subnetHosts.ToString();
         }
 
-        /// <summary> Calculates the CIDR notation from the required hosts. </summary>
-        private static int GetCidrFromHosts(int hostAmount)
+        /// <summary> Calculates the CIDR notation based on the host amount. </summary>
+        /// <param name="hostAmount">The desired amount of hosts.</param>
+        /// <returns>The CIDR notation as an integer.</returns>
+        private static int CalculateCidrFromHosts(int hostAmount)
         {
             return 32 - (int)Math.Ceiling(Math.Log(hostAmount + 2, 2));
         }
 
-        /// <summary> Converts the CIDR notation into a subnet mask. </summary>
-        private static IPAddress GetSubnetMask(int cidr)
+        /// <summary> Calculates the subnet mask based on the CIDR notation. </summary>
+        /// <param name="cidr">The CIDR notation.</param>
+        /// <returns>The subnet mask as an <see cref="IPAddress" />.</returns>
+        private static IPAddress CalculateSubnetMask(int cidr)
         {
             var subnetMask = new byte[4];
 
@@ -114,8 +123,11 @@ namespace VLSMistique.Models
             return new IPAddress(subnetMask);
         }
 
-        /// <summary> Calculates the network address from the IP address and the subnet mask. </summary>
-        private static IPAddress GetNetworkAddress(IPAddress ip, IPAddress subnetMask)
+        /// <summary> Calculates the network address based on the IP address and the subnet mask. </summary>
+        /// <param name="ip">The IP address.</param>
+        /// <param name="subnetMask">The subnet mask.</param>
+        /// <returns>The network address as an <see cref="IPAddress" />.</returns>
+        private static IPAddress CalculateNetworkAddress(IPAddress ip, IPAddress subnetMask)
         {
             var ipBytes = ip.GetAddressBytes();
             var subnetMaskBytes = subnetMask.GetAddressBytes();
@@ -127,8 +139,11 @@ namespace VLSMistique.Models
             return new IPAddress(networkAddressBytes);
         }
 
-        /// <summary> Calculates the broadcast address from the IP address and the subnet mask. </summary>
-        private static IPAddress GetBroadcastAddress(IPAddress ip, IPAddress subnetMask)
+        /// <summary> Calculates the broadcast address based on the IP address and the subnet mask. </summary>
+        /// <param name="ip">The IP address.</param>
+        /// <param name="subnetMask">The subnet mask.</param>
+        /// <returns>The broadcast address as an <see cref="IPAddress" />.</returns>
+        private static IPAddress CalculateBroadcastAddress(IPAddress ip, IPAddress subnetMask)
         {
             var ipBytes = ip.GetAddressBytes();
             var subnetMaskBytes = subnetMask.GetAddressBytes();
@@ -140,8 +155,10 @@ namespace VLSMistique.Models
             return new IPAddress(broadcastAddressBytes);
         }
 
-        /// <summary> Calculates the first availible IP address from the network address. </summary>
-        private static IPAddress GetFirstAddress(IPAddress ip)
+        /// <summary> Calculates the first usable IP address in a subnet. </summary>
+        /// <param name="ip">The network address of the subnet.</param>
+        /// <returns>The first usable IP address as an <see cref="IPAddress" />.</returns>
+        private static IPAddress CalculateFirstAddress(IPAddress ip)
         {
             var ipBytes = ip.GetAddressBytes();
             if (BitConverter.IsLittleEndian)
@@ -169,8 +186,10 @@ namespace VLSMistique.Models
             return new IPAddress(FirstAddressBytes);
         }
 
-        /// <summary> Calculates the last availible IP address from the broadcast address. </summary>
-        private static IPAddress GetLastAddress(IPAddress ip)
+        /// <summary> Calculates the last usable IP address in a subnet. </summary>
+        /// <param name="ip">The broadcast address of the subnet.</param>
+        /// <returns>The last usable IP address as an <see cref="IPAddress" />.</returns>
+        private static IPAddress CalculateLastAddress(IPAddress ip)
         {
             var ipBytes = ip.GetAddressBytes();
             if (BitConverter.IsLittleEndian)
@@ -198,8 +217,22 @@ namespace VLSMistique.Models
             return new IPAddress(LastAddressBytes);
         }
 
-        /// <summary> Calculates the next IP address for the next subnet using the broadcast address. </summary>
-        static IPAddress GetNextAddress(IPAddress ip)
+        /// <summary> Calculates the range of usable IP addresses in a subnet. </summary>
+        /// <param name="networkAddress">The network address of the subnet.</param>
+        /// <param name="broadcastAddress">The broadcast address of the subnet.</param>
+        /// <returns>The range of usable IP addresses as a string.</returns>
+        private static string CalculateRange(IPAddress networkAddress, IPAddress broadcastAddress)
+        {
+            var firstAddress = CalculateFirstAddress(networkAddress);
+            var lastAddress = CalculateLastAddress(broadcastAddress);
+
+            return $"{firstAddress} - {lastAddress}";
+        }
+
+        /// <summary> Gets the next IP address after a given IP address. </summary>
+        /// <param name="ip">The IP address to get the next address for.</param>
+        /// <returns>The next IP address as an <see cref="IPAddress" />.</returns>
+        private static IPAddress GetNextAddress(IPAddress ip)
         {
             byte[] ipBytes = ip.GetAddressBytes();
             for (int i = ipBytes.Length - 1; i >= 0; i--)
@@ -221,5 +254,7 @@ namespace VLSMistique.Models
             }
             return new IPAddress(ipBytes);
         }
+
+        #endregion Private Methods
     }
 }

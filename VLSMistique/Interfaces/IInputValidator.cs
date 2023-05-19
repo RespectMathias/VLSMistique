@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,14 @@ using VLSMistique.Models;
 
 namespace VLSMistique.Interfaces
 {
-    /// <summary> Rhe interface for VLSM calculator model. </summary>
-    public interface IVLSMCalculatorModel
+    /// <summary> Interface responsible for validating input data. </summary>
+    public interface IInputValidator
     {
-        /// <summary> Calculates subnets based on the provided IP address, subnet amount, and host amounts. </summary>
-        /// <param name="ipAddress">The IP address.</param>
+        /// <summary> Validates the given address, subnet amount, and subnets collection. </summary>
+        /// <param name="address">The address to validate.</param>
         /// <param name="subnetAmount">The number of subnets.</param>
-        /// <param name="hostAmounts">The list of host amounts for each subnet.</param>
-        /// <returns>A list of subnet models.</returns>
-        List<SubnetModel> CalculateSubnets(string ipAddress, int subnetAmount, List<int> hostAmounts);
+        /// <param name="subnets">The collection of subnets.</param>
+        /// <returns><c>true</c> if the input is valid, otherwise <c>false</c>.</returns>
+        bool Validate(string address, int subnetAmount, ObservableCollection<SubnetModel> subnets);
     }
 }

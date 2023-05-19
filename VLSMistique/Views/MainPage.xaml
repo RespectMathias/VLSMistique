@@ -1,23 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--/*   Copyright 2023 Mathias Lund-Hansen
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License. */-->
+<!-- Copyright 2023 Mathias Lund-Hansen
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+    http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
+<!-- Page displaying subnet information -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:ViewModels="clr-namespace:VLSMistique.ViewModels"
              xmlns:Models="clr-namespace:VLSMistique.Models"
-             x:Class="VLSMistique.MainPage"
+             x:Class="VLSMistique.Views.MainPage"
              x:DataType="ViewModels:MainPageViewModel">
 
     <ContentPage.Resources>
@@ -32,7 +34,8 @@
     <StackLayout VerticalOptions="FillAndExpand">
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout>
-                <!-- Amount of Subnets Input -->
+                <!-- Amount of Subnets Input. -->
+                <!-- Input for specifying the number of subnets. -->
                 <Label Text="Subnet Amount:" Margin="5,5,5,5" VerticalOptions="Center" />
                 <Entry Margin="5,5,5,5"
                Text="{Binding SubnetAmount, Mode=TwoWay}" >
@@ -46,6 +49,7 @@
                 </Entry>
 
                 <!-- IPAddress Input -->
+                <!-- Input for specifying the IPAdress. -->
                 <Label Text="IP Address:" Margin="5,5,5,5" VerticalOptions="Center" />
                 <Entry Margin="5,5,5,5"
                Text="{Binding Address, Mode=TwoWay}">
@@ -53,33 +57,33 @@
                         <toolkit:TextValidationBehavior
                             InvalidStyle="{StaticResource InvalidEntryStyle}"
                             Flags="ValidateOnValueChanged"
-                            RegexPattern="^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" />
+                            RegexPattern="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" />
                     </Entry.Behaviors>
                 </Entry>
 
                 <!-- CollectionView Header -->
                 <Grid ColumnSpacing="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="1" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Margin="5,5,5,5" Text="Required Host" />
-                            <Label Grid.Column="1" Margin="5,5,5,5" Text="Available Hosts" />
-                            <Label Grid.Column="2" Margin="5,5,5,5" Text="Subnet Mask" />
-                            <Label Grid.Column="3" Margin="5,5,5,5" Text="Network Address" />
-                            <Label Grid.Column="4" Margin="5,5,5,5" Text="Range" />
-                            <Label Grid.Column="5" Margin="5,5,5,5" Text="Broadcast Address" />
-                            <BoxView Grid.Row="1" Grid.ColumnSpan="6" HeightRequest="1" BackgroundColor="Black" />
-                        </Grid>
-                
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="1" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="5,5,5,5" Text="Required Host" />
+                    <Label Grid.Column="1" Margin="5,5,5,5" Text="Available Hosts" />
+                    <Label Grid.Column="2" Margin="5,5,5,5" Text="Subnet Mask" />
+                    <Label Grid.Column="3" Margin="5,5,5,5" Text="Network Address" />
+                    <Label Grid.Column="4" Margin="5,5,5,5" Text="Range" />
+                    <Label Grid.Column="5" Margin="5,5,5,5" Text="Broadcast Address" />
+                    <BoxView Grid.Row="1" Grid.ColumnSpan="6" HeightRequest="1" BackgroundColor="Black" />
+                </Grid>
+
                 <!-- Subnets CollectionView -->
                 <CollectionView Margin="5,5,5,5"
                             ItemsSource="{Binding Subnets}" >
@@ -126,13 +130,15 @@
             </StackLayout>
         </ScrollView>
 
-        <!-- Buttons StackLayout -->
+        <!-- Buttons StackLayout at the bottom. -->
         <StackLayout VerticalOptions="End">
-            <!-- Calculate Subnets Button -->
+            <!-- Calculate Subnets Button. -->
+            <!-- Button to trigger subnet calculation. -->
             <Button Text="Calculate" Margin="5,5,5,5"
                     Command="{Binding CalculateSubnetsCommand}" IsEnabled="{Binding ValidateInput}" />
 
-            <!-- Export Button -->
+            <!-- Export Button. -->
+            <!-- Button to trigger export Subnets as Csv. -->
             <Button Text="Export..." Margin="5,5,5,5"
                     Command="{Binding ExportCommand}" />
         </StackLayout>
