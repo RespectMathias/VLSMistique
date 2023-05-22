@@ -33,7 +33,6 @@ namespace VLSMistique.Services
 
         // Minimum and maximum valid subnet amounts. Chosen based on typical subnet configurations.
         private const int MinSubnetAmount = 1;
-        private const int MaxSubnetAmount = 99;
 
         // Minimum and maximum valid host amounts. In a subnet, there can be up to 254 usable host addresses.
         private const int MinHostAmount = 1;
@@ -47,7 +46,7 @@ namespace VLSMistique.Services
         /// <returns>Returns true if all inputs are valid; otherwise, false.</returns>
         public bool Validate(string address, int subnetAmount, ObservableCollection<SubnetModel> subnets)
         {
-            return subnetAmount >= MinSubnetAmount && subnetAmount <= MaxSubnetAmount // Validates the subnet amount. 
+            return subnetAmount >= MinSubnetAmount // Validates the subnet amount. 
                 && !string.IsNullOrEmpty(address) && Regex.IsMatch(address, AddressPattern) // Validates the IPAdress. 
                 && subnets.All(subnet => subnet.HostAmount > MinHostAmount && subnet.HostAmount < MaxHostAmount); // Validates the Host amounts.
         }
