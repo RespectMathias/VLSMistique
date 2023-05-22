@@ -11,6 +11,5 @@ namespace VLSMistique.Views
             // Set the BindingContext to an instance of the ViewModel.
             BindingContext = new MainPageViewModel();
         }
-
     }
 }

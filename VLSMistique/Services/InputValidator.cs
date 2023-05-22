@@ -48,7 +48,7 @@ namespace VLSMistique.Services
         {
             return subnetAmount >= MinSubnetAmount // Validates the subnet amount. 
                 && !string.IsNullOrEmpty(address) && Regex.IsMatch(address, AddressPattern) // Validates the IPAdress. 
-                && subnets.All(subnet => subnet.HostAmount > MinHostAmount && subnet.HostAmount < MaxHostAmount); // Validates the Host amounts.
+                && subnets.All(subnet => subnet.HostAmount >= MinHostAmount && subnet.HostAmount <= MaxHostAmount); // Validates the Host amounts.
         }
     }
 }

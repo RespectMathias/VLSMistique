@@ -37,6 +37,7 @@ namespace VLSMistique.ViewModels
         // Fields and dependencies
 
         private string _address;
+        private int _subnetAmount;
         private bool _validateInput;
         private ObservableCollection<SubnetModel> _subnets = new();
         private readonly IFileSaver _fileSaver = FileSaver.Default;
@@ -51,7 +52,7 @@ namespace VLSMistique.ViewModels
             _calculatorModel = new VLSMCalculatorModel(); // Instantiate the VLSM calculator model
             _inputValidator = new InputValidator(); // Instantiate the input validator
             _csvConverter = new CsvConverter(); // Instantiate the CSV converter
-            for (int i = 1; i < 3; i++)
+            for (int i = 1; i <= 3; i++)
                 AddSubnets(); // Add initial subnet
         }
 
@@ -84,6 +85,25 @@ namespace VLSMistique.ViewModels
                 SetProperty(ref _address, value); 
                 UpdateValidateInput(); // Update the validation flag
             } 
+        }
+
+        /// <summary> Gets or sets the SubnetAmount . </summary>
+        public int SubnetAmount
+        {
+            get => _subnetAmount;
+            set
+            {
+                if (value >= 0 && SetProperty(ref _subnetAmount, value)) // Ensure positive value and changed
+                {
+                    var difference = value - Subnets.Count;
+                    if (difference > 0)
+                        for (int i = 0; i < difference; i++) // If the new SubnetAmount is greater than the current count, add subnets
+                            AddSubnets();
+                    else if (difference < 0)  
+                        for (int i = 0; i < -difference; i++) // If the new SubnetAmount is less than the current count, remove subnets
+                            RemoveSubnets();
+                }
+            }
         }
 
         #region Commands
@@ -130,12 +150,14 @@ namespace VLSMistique.ViewModels
         {
             var hostAmounts = Subnets.Select(subnet => subnet.HostAmount).OrderByDescending(amount => amount).ToList();
             var newSubnets = _calculatorModel.CalculateSubnets(Address, Subnets.Count, hostAmounts);
-            Subnets.Clear();
 
-            foreach (var newSubnet in newSubnets)
+            if (newSubnets.Count == Subnets.Count)
             {
-                newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput(); // Update the validation flag for HostAmount
-                Subnets.Add(newSubnet);
+                for (int i = 0; i < Subnets.Count; i++)
+                {
+                    Subnets[i] = newSubnets[i];
+                    Subnets[i].HostAmountChanged += (s, e) => UpdateValidateInput(); // Update the validation flag for HostAmount
+                }
                 UpdateValidateInput(); // Update the validation flag
             }
         }
@@ -147,6 +169,7 @@ namespace VLSMistique.ViewModels
             if (Subnets.Count > 0)
             {
                 Subnets.RemoveAt(Subnets.Count - 1);
+                SubnetAmount = Subnets.Count; // Update Subnet Amount
                 UpdateValidateInput(); // Update the validation flag
             }
         }
@@ -158,6 +181,7 @@ namespace VLSMistique.ViewModels
             var newSubnet = new SubnetModel(null, null, null, null, null, 0);
             newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput(); // Update the validation flag for HostAmount
             Subnets.Add(newSubnet);
+            SubnetAmount = Subnets.Count; // Update Subnet Amount
             UpdateValidateInput(); // Update the validation flag
         }
 
