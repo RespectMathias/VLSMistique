@@ -15,6 +15,7 @@
  */
 
 using System;
+using System.Windows;
 using System.Threading;
 using System.Linq;
 using System.Net;
@@ -37,7 +38,6 @@ namespace VLSMistique.ViewModels
 
         private string _address;
         private bool _validateInput;
-        private int _subnetAmount;
         private ObservableCollection<SubnetModel> _subnets = new();
         private readonly IFileSaver _fileSaver = FileSaver.Default;
         private readonly IVLSMCalculatorModel _calculatorModel;
@@ -51,6 +51,8 @@ namespace VLSMistique.ViewModels
             _calculatorModel = new VLSMCalculatorModel(); // Instantiate the VLSM calculator model
             _inputValidator = new InputValidator(); // Instantiate the input validator
             _csvConverter = new CsvConverter(); // Instantiate the CSV converter
+            for (int i = 1; i < 3; i++)
+                AddSubnets(); // Add initial subnet
         }
 
         // Properties
@@ -66,7 +68,11 @@ namespace VLSMistique.ViewModels
         public ObservableCollection<SubnetModel> Subnets
         {
             get => _subnets;
-            set => SetProperty(ref _subnets, value);
+            set
+            {
+                SetProperty(ref _subnets, value);
+                UpdateValidateInput(); // Update the validation flag
+            }
         }
 
         /// <summary> Gets or sets the address. </summary>
@@ -78,18 +84,6 @@ namespace VLSMistique.ViewModels
                 SetProperty(ref _address, value); 
                 UpdateValidateInput(); // Update the validation flag
             } 
-        }
-
-        /// <summary> Gets or sets the subnet amount. </summary>
-        public int SubnetAmount
-        {
-            get => _subnetAmount;
-            set
-            {
-                SetProperty(ref _subnetAmount, value);
-                AddSubnets(value); // Add subnets based on the given amount
-                UpdateValidateInput(); // Update the validation flag
-            }
         }
 
         #region Commands
@@ -132,17 +126,39 @@ namespace VLSMistique.ViewModels
 
         /// <summary> Calculates the subnets based on the host amounts. </summary>
         [RelayCommand]
-        private void CalculateSubnets()
+        public void CalculateSubnets()
         {
             var hostAmounts = Subnets.Select(subnet => subnet.HostAmount).OrderByDescending(amount => amount).ToList();
-            var newSubnets = _calculatorModel.CalculateSubnets(Address, SubnetAmount, hostAmounts);
+            var newSubnets = _calculatorModel.CalculateSubnets(Address, Subnets.Count, hostAmounts);
             Subnets.Clear();
 
             foreach (var newSubnet in newSubnets)
             {
-                newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput();
+                newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput(); // Update the validation flag for HostAmount
                 Subnets.Add(newSubnet);
+                UpdateValidateInput(); // Update the validation flag
             }
+        }
+
+        /// <summary> Removes subnets. </summary>
+        [RelayCommand]
+        public void RemoveSubnets()
+        {
+            if (Subnets.Count > 0)
+            {
+                Subnets.RemoveAt(Subnets.Count - 1);
+                UpdateValidateInput(); // Update the validation flag
+            }
+        }
+
+        /// <summary> Adds subnets. </summary>
+        [RelayCommand]
+        private void AddSubnets()
+        {
+            var newSubnet = new SubnetModel(null, null, null, null, null, 0);
+            newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput(); // Update the validation flag for HostAmount
+            Subnets.Add(newSubnet);
+            UpdateValidateInput(); // Update the validation flag
         }
 
         #endregion Commands
@@ -152,24 +168,7 @@ namespace VLSMistique.ViewModels
         /// <summary> Updates the validation flag. </summary>
         private void UpdateValidateInput()
         {
-            ValidateInput = _inputValidator.Validate(Address, SubnetAmount, Subnets);
-        }
-
-        /// <summary> Adds subnets based on the given count. </summary>
-        /// <param name="count">The number of subnets to add.</param>
-        private void AddSubnets(int count)
-        {
-            // Input limitations
-            if (count <= 0 || count >= 100)
-                return;
-
-            Subnets.Clear();
-            for (int i = 1; i <= count; i++)
-            {
-                var newSubnet = new SubnetModel(null, null, null, null, null, 0);
-                newSubnet.HostAmountChanged += (s, e) => UpdateValidateInput();
-                Subnets.Add(newSubnet);
-            }
+            ValidateInput = _inputValidator.Validate(Address, Subnets.Count, Subnets);
         }
 
         #endregion Private methods

@@ -34,20 +34,6 @@ limitations under the License. -->
     <StackLayout VerticalOptions="FillAndExpand">
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout>
-                <!-- Amount of Subnets Input. -->
-                <!-- Input for specifying the number of subnets. -->
-                <Label Text="Subnet Amount:" Margin="5,5,5,5" VerticalOptions="Center" />
-                <Entry Margin="5,5,5,5"
-               Text="{Binding SubnetAmount, Mode=TwoWay}" >
-                    <Entry.Behaviors>
-                        <toolkit:NumericValidationBehavior 
-                            InvalidStyle="{StaticResource InvalidEntryStyle}"
-                            Flags="ValidateOnValueChanged"
-                            MinimumValue="1"
-                            MaximumValue="99" />
-                    </Entry.Behaviors>
-                </Entry>
-
                 <!-- IPAddress Input -->
                 <!-- Input for specifying the IPAdress. -->
                 <Label Text="IP Address:" Margin="5,5,5,5" VerticalOptions="Center" />
@@ -85,7 +71,7 @@ limitations under the License. -->
                 </Grid>
 
                 <!-- Subnets CollectionView -->
-                <CollectionView Margin="5,5,5,5"
+                <CollectionView Margin="5,5,5,5" x:Name="SubnetsCollectionView"
                             ItemsSource="{Binding Subnets}" >
                     <CollectionView.ItemTemplate CachingStrategy="RecycleElement">
                         <DataTemplate x:DataType="Models:SubnetModel">
@@ -127,6 +113,22 @@ limitations under the License. -->
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+                <!-- Should be below CollectionView but always on screen -->
+                <!-- Meaning once it reaches the export buttons it should scroll to follow -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Text="-" Margin="5,5,5,5" HeightRequest="50" WidthRequest="50" CornerRadius="25"
+                            Command="{Binding RemoveSubnetsCommand}" />
+
+                    <Button Grid.Column="2" Text="+" Margin="5,5,5,5" HeightRequest="50" WidthRequest="50" CornerRadius="25"
+                            Command="{Binding AddSubnetsCommand}" />
+                </Grid>
             </StackLayout>
         </ScrollView>
 
