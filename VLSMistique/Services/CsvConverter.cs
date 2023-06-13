@@ -48,9 +48,9 @@ namespace VLSMistique.Services
                 csv.AppendLine(subnet.HostAmount + _delimiter +
                                subnet.MaxSubnetHosts + _delimiter +
                                subnet.Mask + _delimiter +
-                               subnet.BroadcastAddress + _delimiter +
+                               subnet.NetworkAddress + _delimiter +
                                subnet.Range + _delimiter +
-                               subnet.NetworkAddress);
+                               subnet.BroadcastAddress);
             }
 
             return csv.ToString();
